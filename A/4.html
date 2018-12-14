@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title> NavBar </title>
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: sans-serif;
+                padding: 0;
+                margin: 0;
+                height: 100%;
+                width: 100%;
+                color: #fff;
+            }
+
+            .bar {
+                background-color: #d4145a;
+                width: 100%;
+                height: 8vh;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                font-size: 2em;
+            }
+
+            .bar .left {
+                width: 60%;
+            }
+            #logo {
+                width: 100%;
+                padding-left: 20px;
+            }
+
+            .bar .right {
+                width: 40%;
+                display: flex;
+                justify-content: space-around;
+                flex-direction: row;
+                text-align: center;
+            }
+
+            .right #link {
+                text-align: center;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="bar">
+            <div class="left">
+                <span id="logo">Logo</span>
+            </div>
+            <div class="right">
+                <div id="link">Link</div>   
+                <div id="link">Link</div>
+                <div id="link">Link</div>
+                <div id="link">Link</div>
+            </div>
+        </div>
+    </body>
+</html>
