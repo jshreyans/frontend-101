@@ -92,6 +92,9 @@
                     background-color: #d4145a;
                     transition: margin-left 0.3s ease;
                 }
+                #navbar {
+                    margin-left: -40vw;
+                }
 
                 .ham-menu .ham-link {
                     display: flex;
@@ -137,11 +140,11 @@
     <script>
         function slide_nav() {
             let nav = document.getElementById("navbar");
-            if (nav.style.marginLeft == "0") {
-                nav.style.marginLeft = "-40vw";
+            if (nav.style.marginLeft == "-40vw") {
+                nav.style.marginLeft = "0";
             }
             else {
-                nav.style.marginLeft = "0";
+                nav.style.marginLeft = "-40vw";
             }
         }
     </script>
