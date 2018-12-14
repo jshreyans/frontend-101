@@ -1,2 +1,2 @@
 # frontend-101
-DVM Frontend Winter Assignment
+Department of Visual Media - Frontend Assignment for CSS and Javascript
