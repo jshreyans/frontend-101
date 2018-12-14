@@ -17,16 +17,9 @@ body {
     justify-content: space-around;
 }
 
-.outer {
-    background-color: #996600;
-    width: 100px;
-    height: 100px;
-}
-
-.inner {
+.box {
     background-color: #e69900;
-    margin-left: 5px;
-    margin-top: 5px;
+    border: 5px #996600 solid;
     height: 90px;
     width: 90px;
     display: flex;
