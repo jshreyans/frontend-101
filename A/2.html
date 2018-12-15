@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title> Untitled 2 </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<style>
+				* {
+					box-sizing: border-box;
+				}
+				body {
+					background-color: green;
+					font-family: Roboto;
+					margin: 0;
+					padding: 0;
+				}
+
+				.container {
+					width: 100%;
+					margin: 0;
+					padding: 0;
+					min-height: 100%;
+
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: space-around;
+					align-content: space-around;
+					align-items: center;
+				}
+
+				.container span {
+					height: 200px;
+					background-color: #fff;
+					text-align: center;
+					margin: 10px;
+					width: 23vw;
+					font-size: 3em;
+
+					display: flex;
+					justify-content: center;
+					align-content: center;
+					align-items: center;
+				}
+
+				@media all and (max-width: 400px) {
+					.container span {
+						width: 90vw;
+					}
+				}
+
+				@media all and (min-width: 400px) and (max-width: 800px) {
+					.container span {
+						width: 45vw;
+					}
+
+					.container span:nth-child(4n+3) {
+						opacity: 0;
+					}
+					.container span:nth-child(4n+2) {
+						opacity: 0;
+					}	
+				}
+
+
+				@media all and (min-width: 800px) and (max-width: 1200px) {
+					.container span {
+						width: 30vw;
+					}
+					.container span:nth-child(6n+3) {
+						opacity: 0;
+					}
+					.container span:nth-child(6n+4) {
+						opacity: 0;
+					}	
+				}
+
+				@media all and (min-width: 1200px) {
+					.container span {
+						width: 23vw;
+					}
+					.container span:nth-child(8n+4) {
+						opacity: 0;
+					}
+					.container span:nth-child(8n+5) {
+						opacity: 0;
+					}	
+				}
+			</style>
+	</head>
+<body>
+
+	<div class="container"> 
+		<span> A </span>
+		<span> B </span>
+		<span> C </span>
+		<span> D </span>
+		<span> E </span>
+		<span> F </span>
+		<span> G </span>
+		<span> H </span>
+		<span> I </span>
+		<span> J </span>
+		<span> K </span>
+		<span> L </span>
+	</div>
+</body>
+</html>
