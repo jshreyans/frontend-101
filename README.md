@@ -3,7 +3,7 @@
 1. A
     - A1 : Basic Grid
       - responsive grid made with felxboxes 
-    - A8 : Responsive NavBar
+    - A4 : Responsive NavBar
       - A responsive navigation bar made using CSS flexboxes and media queries
 2. B 
     - B1 : Drums
