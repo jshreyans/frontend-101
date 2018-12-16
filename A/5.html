@@ -51,12 +51,56 @@
         .b1-front:hover ~ .b1-side {
             transform: rotateY(90deg);
         }
+
+        .button-right {
+            position: absolute;
+            top: 40vh;
+            right: 25vw;
+            perspective: 200px;
+            perspective-origin: 150px -50px;
+        }
+        .b2-face {
+            height: 50px;
+            width: 100px;
+            line-height: 50px;
+            color:white;
+            background-color: red;
+            border: 2px solid black;
+            text-align: center;
+            font-size: 1.5em;
+            transition: transform 0.2s ease;
+            transform-origin: 50px 25px 25px;
+            transform: translateZ(20px);
+            z-index: 10;
+        }
+        .b2-face:hover {
+            transform: translateZ(0px);
+            cursor: pointer;
+        }
+        .b2-up {
+            height: 50px;
+            width: 100px;
+            background-color: red;
+            border: 2px black solid;
+            position: absolute;
+            transform-origin: 0 0;
+            transform: translateZ(20px) rotateX(-90deg);
+            transition: transform 0.2s ease;
+        }
+        .b2-face:hover ~ .b2-up {
+            transform: rotateX(0deg);
+        }
+        
     </style>
 </head>
 <body>
     <div class="button-left">
         <div class="b1-front">Button</div>
         <div class="b1-side"></div>
+    </div>
+    <div class="button-right">
+        <div class="b2-face">Button</div>
+        <div class="b2-up"></div>
     </div>
 </body>
 </html>
