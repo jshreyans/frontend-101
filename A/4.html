@@ -75,6 +75,9 @@
                 background-color: #fff;
                 transition: 0.3s ease;  
             }
+            .ham:hover {
+                cursor: pointer;
+            }
             .ham-logo {
                 width: 80vw;
                 text-align: center;
@@ -90,10 +93,15 @@
                 margin-left: -100vw;
                 transition: 0.3s ease;
             } 
-            .ham-menu>div {
+            .ham-menu > div {
                 line-height: 10vh;
                 text-align: center;
                 font-size: 1.5em;
+            }
+            .ham-menu > div:hover {
+                background-color: #bb114f;
+                cursor:pointer;
+                transition: 0.5s ease;
             }
         }
     </style>
@@ -132,8 +140,8 @@
             if (count === 0) {
                 ham.style.transform = "translateX(100vw)";
 
-                line.firstElementChild.style.transform = "rotate(47deg)";
-                line.lastElementChild.style.transform = "rotate(-47deg)";
+                line.firstElementChild.style.transform = "rotate(48deg)";
+                line.lastElementChild.style.transform = "rotate(-48deg)";
                 line.firstElementChild.nextElementSibling.style.opacity = "0";
                 count++;
             }
