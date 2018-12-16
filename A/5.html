@@ -15,35 +15,42 @@
         }
         .button-left {
             position: absolute;
-            left: 20vw;
-            top: 30vh;
+            left: 25vw;
+            top: 40vh;
             display: flex;
             flex-direction: row;
             perspective: 200px;
         }
         .b1-front {
-            border: 4px solid black;
+            border: 2px solid black;
             background-color: red;
-            line-height: 70px;
-            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            width: 100px;
             text-align: center;
-            font-size: 1.3em;
+            font-size: 1.6em;
+            color: #fff;
+            transition: transform 0.1s ease;
 
             transform-origin: 0 0;
-            transform: rotateY(-20deg);
+            transform: rotateY(-15deg);
         }
         .b1-side {
-            border: 4px solid black;
+            border: 2px solid black;
             background-color: red;
-            height: 70px;
-            width: 80px;
+            height: 50px;
+            transition: transform 0.1s ease;
+            width: 100px;
             transform-origin: 0 0;
-            transform: rotateY(60deg);
+            transform: translateZ(28px) translateX(-4px) rotateY(80deg);
         }
         .b1-front:hover {
             transform: rotateY(0deg);
-            transition: 0.2s ease;
-        }   
+            cursor: pointer;
+        }
+        .b1-front:hover ~ .b1-side {
+            transform: rotateY(90deg);
+        }
     </style>
 </head>
 <body>
