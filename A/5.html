@@ -15,8 +15,8 @@
         }
         .button-left {
             position: absolute;
-            left: 25vw;
-            top: 40vh;
+            left: 25%;
+            top: 40%;
             display: flex;
             flex-direction: row;
             perspective: 200px;
@@ -29,7 +29,6 @@
             width: 100px;
             text-align: center;
             font-size: 1.6em;
-            color: #fff;
             transition: transform 0.1s ease;
 
             transform-origin: 0 0;
@@ -54,87 +53,91 @@
 
         .button-right {
             position: absolute;
-            top: 40vh;
-            right: 25vw;
+            top: 40%;
+            right: 30%;
             perspective: 200px;
-            perspective-origin: 180px -50px;
+            perspective-origin: 200px -50px;
         }
         .b2-face {
-            height: 50px;
             width: 100px;
+            height: 50px;
             line-height: 50px;
-            color:white;
-            background-color: red;
-            border: 2px solid black;
+            transition: transform 0.3s ease;
+
+            position: absolute;
             text-align: center;
             font-size: 1.5em;
-            transition: transform 0.2s ease;
-            transform-origin: 50px 25px 25px;
+            background: red;
+            border: 2px solid black;
+            transform-origin: 50px 25px 20px;
             transform: translateZ(20px);
             z-index: 10;
         }
         .b2-face:hover {
-            transform: translateZ(0px);
+            transform: translateZ(0);
             cursor: pointer;
         }
-        .b2-down {
-            height: 50px;
+        .b2-top {
             width: 100px;
-            background-color: red;
-            border: 2px black solid;
+            height: 50px;
+            background: red;
+            transition: transform 0.3s ease;
+            border: 2px solid black;
             position: absolute;
+
             transform-origin: 0 0;
             transform: translateZ(20px) rotateX(-90deg);
-            transition: transform 0.2s ease;
         }
-        .b2-face:hover ~ .b2-down {
-            transform: rotateX(0deg);
+        .b2-face:hover ~ .b2-top {
+            transform: translateZ(0) rotateX(-180deg);
         }
-        .b2-up {
-            position: absolute;
-            bottom: 5.2vh;
-            height: 50px;
+        .b2-bottom {
             width: 100px;
-            background-color: red;
-            border: 2px black solid;
+            height: 50px;
+            background: red;
+            border: 2px solid black;
+            transition: transform 0.3s ease;
             position: absolute;
-            transform-origin: 0 50px; 
+            left: 2px;
+
+            transform-origin: 0 50px;
             transform: translateZ(20px) rotateX(90deg);
-            transition: transform 0.2s ease;
-            /* z-index: 5; */
         }
-        .b2-face:hover ~ .b2-up {
-            transform: rotate(0deg);
-        }
-        .b2-right {
-            position: absolute;
-            bottom: 0vh;
-            left: 5.5vw;
-            height: 50px;
-            width: 50px;
-            background-color: red;
-            border: 2px black solid;
-            transition: transform 0.2s ease;
-            transform-origin: 0px 0;
-            transform: translateZ(20px) rotateY(90deg);
-        }
-        .b2-face:hover ~ .b2-right {
-            transform: rotateY(0deg);
-        }
-        .b2-left {
-            position: absolute;
-            bottom: 0vh;
-            height: 50px;
-            width: 50px;
-            background-color: red;
-            border: 2px black solid;
-            transition: transform 0.2s ease;
-            transform-origin: 0 0;
-            transform: translateZ(20px) rotateY(90deg);
-        }
-        .b2-face:hover ~ .b2-left {
-            transform: rotateY(-180deg);
-        }
+        .b2-face:hover ~ .b2-bottom {
+            transform: translateZ(0) rotateX(180deg);
+         }
+
+         .b2-left {
+             width: 50px;
+             height: 50px;
+             border: 2px black solid;
+             background: red;
+             position: absolute;
+             transition: transform 0.3s ease;
+             /* z-index: 20; */
+
+             transform-origin: 0 50px;
+             transform: translateZ(20px) rotateY(90deg);
+         }
+         .b2-face:hover ~ .b2-left {
+             transform: translateZ(0) rotateY(180deg);
+         }
+         .b2-right {
+             width: 50px;
+             height: 50px;
+             border: 2px black solid;
+             background: red;
+             position: absolute;
+             transition: transform 0.3s ease;
+             /* z-index: 20; */
+             left: 104px;
+
+             transform-origin: 0 50px;
+             transform: translateZ(20px) rotateY(90deg);
+         }
+         .b2-face:hover ~ .b2-right {
+             transform: translateZ(0) rotateY(0);
+         }
     </style>
 </head>
 <body>
@@ -143,11 +146,11 @@
         <div class="b1-side"></div>
     </div>
     <div class="button-right">
-        <div class="b2-face">Button</div>
-        <div class="b2-down"></div>
-        <div class="b2-up"></div>
-        <div class="b2-right"></div>
+        <div class="b2-face"> Button </div>
+        <div class="b2-top"></div>
+        <div class="b2-bottom"></div>
         <div class="b2-left"></div>
+        <div class="b2-right"></div>
     </div>
 </body>
 </html>
