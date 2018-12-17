@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
@@ -104,5 +104,103 @@
 		<span> K </span>
 		<span> L </span>
 	</div>
+</body>
+</html> -->
+
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>frontend-101 A1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: green;
+            font-family: sans-serif;
+        }
+
+        .container {
+            min-height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            align-content: space-around;
+        }
+        .container span {
+            height: 30vh;
+            font-size: 3em;
+            margin: 10px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 23vw;
+        }
+
+        @media all and (max-width: 500px) {
+            .container span {
+                width: 90vw;
+            }
+        } 
+
+        @media all and (min-width: 501px) and (max-width: 900px) {
+            .container span {
+                width: 45vw;
+            }
+			.container span:nth-child(4n+2) {
+				opacity: 0;
+			}
+			.container span:nth-child(4n+3) {
+				opacity: 0;
+			}
+        }
+
+        @media all and (min-width: 901px) and (max-width: 1200px) {
+            .container span {
+                width: 30vw;
+            }
+			.container span:nth-child(6n+3) {
+				opacity: 0;
+			}
+			.container span:nth-child(6n+4) {
+				opacity: 0;
+			}
+        } 
+        @media all and (min-width: 1201px) {
+            .container span {
+                width: 23vw;
+            }
+			.container span:nth-child(8n+4) {
+				opacity: 0;
+			}
+			.container span:nth-child(8n+5) {
+				opacity: 0;
+			}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span>A</span>
+        <span>B</span>
+        <span>C</span>
+        <span>D</span>
+        <span>E</span>
+        <span>F</span>
+        <span>G</span>
+        <span>H</span>
+        <span>I</span>
+        <span>J</span>
+        <span>K</span>
+        <span>L</span>
+    </div>
 </body>
 </html>
