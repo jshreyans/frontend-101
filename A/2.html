@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>frontend-101 A1</title>
+    <title>frontend-101 A2</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
@@ -27,7 +27,7 @@
         }
         .container span {
             height: 30vh;
-            font-size: 3em;
+            font-size: 4em;
             margin: 10px;
             background-color: #fff;
             display: flex;
@@ -46,17 +46,35 @@
             .container span {
                 width: 45vw;
             }
+			.container span:nth-child(2n+1) {
+				margin-right: 51vw;
+			}
+			.container span:nth-child(2n+2) {
+				margin-left: 51vw;
+			}
         }
 
         @media all and (min-width: 901px) and (max-width: 1200px) {
             .container span {
                 width: 30vw;
             }
+			.container span:nth-child(4n+2) {
+				margin-right: 34vw;
+			}
+			.container span:nth-child(4n+3) {
+				margin-left: 34vw;
+			}
         } 
         @media all and (min-width: 1201px) {
             .container span {
                 width: 23vw;
             }
+			.container span:nth-child(6n+3) {
+				margin-right: 25.5vw;
+			}
+			.container span:nth-child(6n+4) {
+				margin-left: 25.5vw;
+			}
         }
     </style>
 </head>
