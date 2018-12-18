@@ -2,7 +2,7 @@
 ## Department of Visual Media - Assignment for CSS and Javascript
 1. Set A 
     - A1 : Basic Grid
-      - responsive grid made with felxboxes 
+        - responsive grid made with flexboxes 
     - A2 : Incomplete Grid
         - incomplete grid positioned with margins
     - A3 : Trippy Grid
@@ -14,4 +14,5 @@
     - A7 : The X Factor
         - iPhoneX Home Screen made using circular gradient backgrounds in CSS
 2. Set B 
-    - B1 : Drums
+    - B2 : Clock
+        - A typical clock made with JS 
