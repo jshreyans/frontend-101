@@ -100,8 +100,27 @@
         }
         .right-curve {
             width: 20px;
-            height: 20px
+            height: 20px;
             border-radius: 50%;
+        }
+        .camera {
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: rgba(103,103,255,0.55);
+            position: absolute;
+            top: 7px;
+            left: 156px;
+            z-index: 100;
+        }
+        .speaker-grill {
+            width: 68px;
+            height: 5px;
+            border-radius: 2.5px;
+            background: rgba(135,129,129,0.39);
+            position: absolute;
+            top: 11px;
+            left: 68px;
         }
     </style>
 </head>
@@ -117,7 +136,10 @@
         <div class="volume-up"></div>
         <div class="volume-down"></div>
 
-        <div class="center-piece"></div>
+        <div class="center-piece">
+            <div class="camera"></div>
+            <div class="speaker-grill"></div>
+        </div>
     </div>
 </body>
 </html>
