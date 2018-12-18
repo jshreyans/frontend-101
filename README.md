@@ -1,6 +1,6 @@
 # frontend-101
 ## Department of Visual Media - Assignment for CSS and Javascript
-1. A
+1. Set A 
     - A1 : Basic Grid
       - responsive grid made with felxboxes 
     - A2 : Incomplete Grid
@@ -11,5 +11,7 @@
       - A responsive navigation bar made using CSS flexboxes and media queries
     - A5 : 3D buttons
         - 3D buttons made using CSS transforms 
-2. B 
+    - A7 : The X Factor
+        - iPhoneX Home Screen made using circular gradient backgrounds in CSS
+2. Set B 
     - B1 : Drums
