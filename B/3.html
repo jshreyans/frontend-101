@@ -20,7 +20,8 @@
             top: 100px;
             border-collapse: collapse;
             background: #fff;
-            border: 4px solid black;
+            border: 2px solid black;
+            box-shadow: 6px 6px;
         }
         tr, td {
             border: 1px solid black;
@@ -105,11 +106,11 @@
 //            }
 //        };
 //        
-//        for (let i = 0; i <=  7; i++) {
+//        for (let i = 0; i <=  inputs.length; i++) {
 //            inputs[i].addEventListener('click', clicked);
 //        }
         
-        for(var i = 0; i < 7 ; i++) {
+        for(var i = 0; i < inputs.length ; i++) {
             
             inputs[i].addEventListener('click', function() {
                 
@@ -131,7 +132,7 @@
         }
         
         window.onload = function(){
-            for(var i = 0; i < 7; i++){
+            for(var i = 0; i < inputs.length; i++){
                 inputs[i].checked = false;
             }
         }
