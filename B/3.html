@@ -70,55 +70,71 @@
     
     <script>
         var isShiftPressed = 0;
-        var previousCheck, nowCheck;
+        var previousCheck, nowcheck;
         var inputs = document.getElementsByTagName('input');
         
-        document.addEventListener("keydown", function(e) {
-            if (e.keycode == 16) {isShiftPressed = 1};
-        });
-        
-        document.addEventListener("keyup", function(e) {
-            if (e.keyCode == 16) {isShiftPressed = 0};                          
-        });
-        
-        function checkRange(start, end) {
-            
-            for (let i = start; i <= end; i++) {
-                input[i].checked = true;
+        var checkBetween = function(start, end) {
+            for (var i = start; i<=end; i++) {
+                inputs[i].checked = true;
             }
-        }
+        };
         
-        for (let i = 0; i < 7; i++) {
+        document.addEventListener('keydown', function(e) {
+            if(e.key=="Shift") {
+                isShiftPressed = 1;
+            }
+        });
+        document.addEventListener('keyup', function(e) {
+            if(e.key=="Shift") {
+                isShiftPressed = 0;
+            }
+        });
+        
+//        var clicked = function() {
+//            
+//            nowCheck = this.id;
+//            
+//            if (isShiftPressed && inputs[nowCheck].checked==true && inputs[previousCheck].checked==true) {
+//                
+//                if(nowCheck > previousCheck) {
+//                    checkBetween(previousCheck, nowCheck);
+//                }
+//                else {
+//                    checkBetween(nowCheck, previousCheck);
+//                }
+//            }
+//        };
+//        
+//        for (let i = 0; i <=  7; i++) {
+//            inputs[i].addEventListener('click', clicked);
+//        }
+        
+        for(var i = 0; i < 7 ; i++) {
             
-            inputs[i].addEventListener("click", function() {
+            inputs[i].addEventListener('click', function() {
                 
                 nowCheck = this.id;
-                console.log(nowCheck);
+//                console.log(nowcheck);
+                if (isShiftPressed && inputs[nowCheck].checked==true && inputs[previousCheck].checked==true) {  
                 
-                if (isShiftPressed && inputs[previousCheck].checked == true && inputs[nowCheck] == true) {
-                    
-                    if (nowCheck > previousCheck) {
-                        checkRange(previousCheck, nowCheck);
-                    } 
-                    
-                    else if (nowCheck < previousCheck) {
-                        checkRange(nowCheck, previousCheck);
+                    if(nowCheck > previousCheck) {
+                        checkBetween(previousCheck, nowCheck);
+                    }
+                    else {
+                        checkBetween(nowCheck, previousCheck);
                     }
                 }
                 
                 previousCheck = this.id;
-                console.log('previous: '+previousCheck);
-            })
+//                console.log(previousCheck);
+            });
         }
         
-        window.onload = function() {
-            for (let i =0; i<7; i++) {
+        window.onload = function(){
+            for(var i = 0; i < 7; i++){
                 inputs[i].checked = false;
             }
         }
-        
-//        console.log(isShiftPressed);
-        
     </script>
 </body>
 </html>
