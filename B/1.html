@@ -1,4 +1,4 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -12,7 +12,6 @@
             height: 100%;
             width: 100%;
             position: relative;
-            font: 2em sans-serif;
         }
 
         .wrapper {
@@ -22,50 +21,147 @@
             height: 200px;
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
             justify-content: space-around;
         }
 
         .box {
             background-color: #e69900;
             border: 5px #996600 solid;
-            height: 90px;
-            width: 90px;
+            height: 80px;
+            width: 100px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            font: 20px sans-serif;
         }
     </style>
 </head>
 <body>
     <div class="wrapper">
         <div class="box">
-            <span id="item1">A</span>
+            <span id="item1">A <br> Clap </br> </span>
+            <audio src="../B/1_sounds/Clap.wav" id ="A_clap"></audio>
         </div>
         <div class="box">
-            <span id="item2">S</span>
+            <span id="item2">S <br> Snare </br></span>
+            <audio src="../B/1_sounds/Snare.wav" id ="S_snare"></audio>
         </div>
         <div class="box">
-            <span id="item3">D</span>
+            <span id="item3">D <br> Crash </br></span>
+            <audio src="../B/1_sounds/Crash.wav" id ="D_crash"></audio>
         </div>
         <div class="box">
-            <span id="item4">F</span>
+            <span id="item4">F <br> Hi-Hat </br></span>
+            <audio src="../B/1_sounds/Hi-Hat.wav" id ="F_hihat"></audio>
         </div>
         <div class="box">
-            <span id="item5">G</span>
+            <span id="item5">G <br> Low-Hat </br></span>
+            <audio src="../B/1_sounds/Low-Hat.wav" id ="G_lowhat"></audio>
         </div>
         <div class="box">
-            <span id="item6">H</span>
+            <span id="item6">H <br> Ride </br></span>
+            <audio src="../B/1_sounds/Ride.wav" id ="H_ride"></audio>
         </div>
         <div class="box">
-            <span id="item7">J</span>
+            <span id="item7">J <br> Tom-1 </br></span>
+            <audio src="../B/1_sounds/Tom-1.wav" id ="J_tom1"></audio>
         </div>
         <div class="box">
-            <span id="item8">K</span>
+            <span id="item8">K <br> Tom-2 </br></span>
+            <audio src="../B/1_sounds/Tom-2.wav" id ="K_tom2"></audio>
         </div>
         <div class="box">
-            <span id="item9">L</span>
+            <span id="item9">L <br> Bottle </br></span>
+            <audio src="../B/1_sounds/Bottle.wav" id ="L_bottle"></audio>
         </div>
     </div>
+    
+    <script>
+        document.addEventListener('keydown', function(e) {
+            
+            switch(e.key) {
+                case 'a': 
+                    item1.style.fontSize = "24px";
+                    A_clap.currentTime = 0;
+                    A_clap.play();
+                    break;
+                case 's': 
+                    item2.style.fontSize = "24px";
+                    S_snare.currentTime = 0;
+                    S_snare.play();
+                    break;
+                case 'd': 
+                    item3.style.fontSize = "24px";
+                    D_crash.currentTime = 0;
+                    D_crash.play();
+                    break;
+                case 'f': 
+                    item4.style.fontSize = "24px";
+                    F_hihat.currentTime = 0;
+                    F_hihat.play();
+                    break;
+                case 'g': 
+                    item5.style.fontSize = "24px";
+                    G_lowhat.currentTime = 0;
+                    G_lowhat.play();
+                    break;
+                case 'h': 
+                    item6.style.fontSize = "24px";
+                    H_ride.currentTime = 0;
+                    H_ride.play();
+                    break;
+                case 'j': 
+                    item7.style.fontSize = "24px";
+                    J_tom1.currentTime = 0;
+                    J_tom1.play();
+                    break;
+                case 'k': 
+                    item8.style.fontSize = "24px";
+                    K_tom2.currentTime = 0;
+                    K_tom2.play();
+                    break;
+                case 'l': 
+                    item9.style.fontSize = "24px";
+                    L_bottle.currentTime = 0;
+                    L_bottle.play();
+                    break;
+            };
+            
+        });
+        
+        document.addEventListener('keyup', function(f) {
+            
+            switch(f.key) {
+                case 'a':
+                    item1.style.fontSize = "20px";
+                case 's':
+                    item2.style.fontSize = "20px";
+                case 'd':
+                    item3.style.fontSize = "20px";
+                case 'f':
+                    item4.style.fontSize = "20px";
+                case 'g':
+                    item5.style.fontSize = "20px";
+                case 'h':
+                    item6.style.fontSize = "20px";
+                case 'j':
+                    item7.style.fontSize = "20px";
+                case 'k':
+                    item8.style.fontSize = "20px";
+                case 'l':
+                    item9.style.fontSize = "20px";
+            };
+        });
+        
+//        document.addEventListener('keyup', function(e) {
+//            switch(e.key) {
+//                case 'A':
+//                    
+//            }
+//        }); 
+    </script>
 </body>
 </html>
