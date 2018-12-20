@@ -1,4 +1,4 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -56,18 +56,20 @@
 				margin-left: 51vw;
 			}
             .container span:nth-child(2n+1) {
-                animation: slideRight 1.5s alternate infinite;
+                animation: slideRightA 3s ease infinite;
             }
-            @keyframes slideRight {
-                from {transform: translateX(0)}
-                to {transform: translateX(50vw)}
+            @keyframes slideRightA {
+                0% {transform: translateX(0)}
+                50% {transform: translateX(50vw)}
+                100% {transform: translateX(0)}
             }
             .container span:nth-child(2n+2) {
-                animation: slideLeft 1.5s alternate infinite;
+                animation: slideLeftA 3s ease infinite;
             }
-            @keyframes slideLeft {
-                from {transform: translateX(0)} 
-                to {transform: translateX(-51vw)}
+            @keyframes slideLeftA {
+                0% {transform: translateX(0)} 
+                50% {transform: translateX(-51vw)}
+                100% {transform: translateX(0)}
             }
         }
 
@@ -82,18 +84,20 @@
 				margin-left: 34vw;
 			}
             .container span:nth-child(4n+1), .container span:nth-child(4n+2) {
-                animation: slideRight 1.5s alternate infinite;
+                animation: slideRightB 3s ease infinite;
             }
-            @keyframes slideRight {
-                from {transform: translateX(0)}
-                to {transform: translateX(33vw)}
+            @keyframes slideRightB {
+                0% {transform: translateX(0)}
+                50% {transform: translateX(33vw)}
+                100% {transform: translateX(0)}
             }
             .container span:nth-child(4n+3),.container span:nth-child(4n+4) {
-                animation: slideLeft 1.5s alternate infinite;
+                animation: slideLeftB 3s ease infinite;
             }
-            @keyframes slideLeft {
-                from {transform: translateX(0)} 
-                to {transform: translateX(-33vw)}
+            @keyframes slideLeftB {
+                0% {transform: translateX(0)} 
+                50% {transform: translateX(-33vw)}
+                100% {transform: translateX(0)}
             }
         } 
         @media all and (min-width: 1201px) {
@@ -107,18 +111,20 @@
 				margin-left: 25.5vw;
 			}
             .container span:nth-child(6n+1), .container span:nth-child(6n+2),.container span:nth-child(6n+3) {
-                animation: slideRight 1.5s alternate infinite;
+                animation: slideRightC 3s ease infinite;
             }
-            @keyframes slideRight {
-                from {transform: translateX(0)}
-                to {transform: translateX(25vw)}
+            @keyframes slideRightC {
+                0% {transform: translateX(0)}
+                50% {transform: translateX(25vw)}
+                100% {transform: translateX(0)}
             }
             .container span:nth-child(6n+4),.container span:nth-child(6n+5),.container span:nth-child(6n+6) {
-                animation: slideLeft 1.5s alternate infinite;
+                animation: slideLeftC 3s ease infinite;
             }
-            @keyframes slideLeft {
-                from {transform: translateX(0)} 
-                to {transform: translateX(-25vw)}
+            @keyframes slideLeftC {
+                0% {transform: translateX(0)} 
+                50% {transform: translateX(-25vw)}
+                100% {transform: translateX(0)}
             }
         }
     </style>
