@@ -35,7 +35,8 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            font: 20px sans-serif;
+            font: 23px sans-serif;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -84,47 +85,47 @@
             
             switch(e.key) {
                 case 'a': 
-                    item1.style.fontSize = "24px";
+                    item1.style.fontSize = "20px";
                     A_clap.currentTime = 0;
                     A_clap.play();
                     break;
                 case 's': 
-                    item2.style.fontSize = "24px";
+                    item2.style.fontSize = "20px";
                     S_snare.currentTime = 0;
                     S_snare.play();
                     break;
                 case 'd': 
-                    item3.style.fontSize = "24px";
+                    item3.style.fontSize = "20px";
                     D_crash.currentTime = 0;
                     D_crash.play();
                     break;
                 case 'f': 
-                    item4.style.fontSize = "24px";
+                    item4.style.fontSize = "20px";
                     F_hihat.currentTime = 0;
                     F_hihat.play();
                     break;
                 case 'g': 
-                    item5.style.fontSize = "24px";
+                    item5.style.fontSize = "20px";
                     G_lowhat.currentTime = 0;
                     G_lowhat.play();
                     break;
                 case 'h': 
-                    item6.style.fontSize = "24px";
+                    item6.style.fontSize = "20px";
                     H_ride.currentTime = 0;
                     H_ride.play();
                     break;
                 case 'j': 
-                    item7.style.fontSize = "24px";
+                    item7.style.fontSize = "20px";
                     J_tom1.currentTime = 0;
                     J_tom1.play();
                     break;
                 case 'k': 
-                    item8.style.fontSize = "24px";
+                    item8.style.fontSize = "20px";
                     K_tom2.currentTime = 0;
                     K_tom2.play();
                     break;
                 case 'l': 
-                    item9.style.fontSize = "24px";
+                    item9.style.fontSize = "20px";
                     L_bottle.currentTime = 0;
                     L_bottle.play();
                     break;
@@ -134,25 +135,32 @@
         
         document.addEventListener('keyup', function(f) {
             
+//            let keyList = ['a','s','d','f','g','h','j','k','l'];
+//            
+//            if (f.key in keyList) {
+//                console.log('works');
+//                document.getElementsByClassName('box')[0].style.border = "5px solid #996600";
+//            }
+            
             switch(f.key) {
                 case 'a':
-                    item1.style.fontSize = "20px";
+                    item1.style.fontSize = "23px";
                 case 's':
-                    item2.style.fontSize = "20px";
+                    item2.style.fontSize = "23px";
                 case 'd':
-                    item3.style.fontSize = "20px";
+                    item3.style.fontSize = "23px";
                 case 'f':
-                    item4.style.fontSize = "20px";
+                    item4.style.fontSize = "23px";
                 case 'g':
-                    item5.style.fontSize = "20px";
+                    item5.style.fontSize = "23px";
                 case 'h':
-                    item6.style.fontSize = "20px";
+                    item6.style.fontSize = "23px";
                 case 'j':
-                    item7.style.fontSize = "20px";
+                    item7.style.fontSize = "23px";
                 case 'k':
-                    item8.style.fontSize = "20px";
+                    item8.style.fontSize = "23px";
                 case 'l':
-                    item9.style.fontSize = "20px";
+                    item9.style.fontSize = "23px";
             };
         });
         
