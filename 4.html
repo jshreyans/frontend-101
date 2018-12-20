@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>frontend-101 B4</title>
+        
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+                font-size: 2em;
+                display: flex;
+                justify-content: center;
+            }    
+            #key {
+                position: absolute;
+                top: 100px;
+            }
+            #hidden {
+                position: absolute;
+                top: 180px;
+                display: none;
+            }
+        </style> 
+    </head>
+    <body>
+        <div id="key"> Type in DVM to reveal the hidden message </div>
+        <div id="hidden">Front-End Development is fun! </div>
+        
+        <script>
+            var slicedArray;
+            var keyList = new Array();
+//            document.addEventListener('keydown',function(e) {
+//                
+//                console.log(e.key);
+//                keyList.push(e.key);
+//                console.log(keyList);
+                
+//                if (e.key == "CapsLock" || e.key == "Shift") {
+//                    document.addEventListener('keydown',function(f) {
+//                        keyList.push(f.key);
+//                        console.log(keyList);
+//                        if (keyList.slice(-3) === ['D','V','M']) {
+//                            document.getElementById('hidden').style.display = 'block';
+//                        }
+//                    })
+//                }
+//            }); 
+            
+            document.addEventListener('keyup',function(e) {
+                
+                keyList.push(e.key);
+                
+                slicedArray = keyList.slice(-3);  // Array of last 3 elements of keyList
+                
+                console.log(slicedArray);
+//                console.log(keyList);
+                if (String(slicedArray) === 'D,V,M') {  // Check if last 3 charaters typed are D,V,M
+//                    console.log('works');
+                    document.getElementById('hidden').style.display = 'block';
+//                    document.removeEventListener();
+                };
+            })
+            
+        </script>
+    </body>
+</html>
