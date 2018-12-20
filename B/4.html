@@ -30,23 +30,39 @@
         <div id="hidden">Frontend Development is fun! </div>
         
         <script>
+            let slicedArray;
             var keyList = new Array();
-            document.addEventListener('keydown',function(e) {
-                
+//            document.addEventListener('keydown',function(e) {
+//                
 //                console.log(e.key);
 //                keyList.push(e.key);
 //                console.log(keyList);
                 
-                if (e.key == "CapsLock" || e.key == "Shift") {
-                    document.addEventListener('keydown',function(f) {
-                        keyList.push(f.key);
-                        console.log(keyList);
+//                if (e.key == "CapsLock" || e.key == "Shift") {
+//                    document.addEventListener('keydown',function(f) {
+//                        keyList.push(f.key);
+//                        console.log(keyList);
 //                        if (keyList.slice(-3) === ['D','V','M']) {
 //                            document.getElementById('hidden').style.display = 'block';
 //                        }
-                    })
-                }
-            }); 
+//                    })
+//                }
+//            }); 
+            
+            document.addEventListener('keyup',function(e) {
+                
+                keyList.push(e.key);
+                
+                slicedArray = keyList.slice(-3);  // Array of last 3 elements of keyList
+                
+                console.log(slicedArray);
+//                console.log(keyList);
+                if (String(slicedArray) === 'D,V,M') {  // Check if last 3 charaters typed are D,V,M
+//                    console.log('works');
+                    document.getElementById('hidden').style.display = 'block';
+//                    document.removeEventListener();
+                };
+            })
             
         </script>
     </body>
