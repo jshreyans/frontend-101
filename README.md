@@ -18,3 +18,5 @@
         - A typical clock made with JS 
     - B3 : Multiple Select
         - Simple multiple selection form 
+    - B4 : Sequence Detector
+        - Show hidden text when user types in a certain sequence of keys using `eventListener` 
