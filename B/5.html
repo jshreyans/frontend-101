@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name='viewport' content="width=device-width, initial-scale=1">
+        <title> frontend-101 B5</title>
+        
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+                font-size: 1.2em;
+            }
+            p {
+                line-height: 28px;
+                margin: 0 20px;
+            }
+            img {
+                width: 300px;
+                height: 300px;
+                margin: 10px;
+                opacity: 0;
+            }
+            .float-right {
+                float: right;
+            }
+            .float-left {
+                float: left;
+            }
+            
+            @media all and (max-width: 600px) {
+                img {
+                    width: 100vw;
+                    height: 100vw;
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes slideLeft {
+                from { transform: translateX(100px); opacity: 0}
+                to { transform: translateX(0); opacity: 1}
+            }
+            @keyframes slideRight {
+                from { transform: translateX(-100px); opacity: 0}
+                to { transform: translateX(0); opacity: 1}
+            }
+        </style>     
+    </head>
+    
+    <body>
+        
+        <p>  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deleniti odit iste quidem nesciunt magni velit temporibus, suscipit modi aliquam enim numquam ipsum dolores, vel soluta a fugiat? Sed, vero. Assumenda, deserunt, voluptatum facilis provident magni totam alias dolores dolorum quo quia explicabo minima, eveniet tempora placeat. Beatae magnam voluptatum tempora in suscipit, recusandae ipsa voluptates nesciunt, autem, itaque eligendi! Porro repellat sequi natus debitis ab, veritatis magni distinctio quam adipisci tempora doloremque voluptatum ex voluptate maxime sed, odio modi quod incidunt facere suscipit placeat dolorem, non nemo dolores maiores. Accusantium sit a molestiae, cumque, reprehenderit soluta ratione possimus.  </p>
+        
+        <br>
+        
+        <img src="dvm.jpg" class="float-left">
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deleniti odit iste quidem nesciunt magni velit temporibus, suscipit modi aliquam enim numquam ipsum dolores, vel soluta a fugiat? Sed, vero. Assumenda, deserunt, voluptatum facilis provident magni totam alias dolores dolorum quo quia explicabo minima, eveniet tempora placeat. Beatae magnam voluptatum tempora in suscipit, recusandae ipsa voluptates nesciunt, autem, itaque eligendi! Porro repellat sequi natus debitis ab, veritatis magni distinctio quam adipisci tempora doloremque voluptatum ex voluptate maxime sed, odio modi quod incidunt facere suscipit placeat dolorem, non nemo dolores maiores. Accusantium sit a molestiae, cumque, reprehenderit soluta ratione possimus. </p>
+        
+        <p> Maiores vero, eius, iure voluptas inventore est cupiditate quis laudantium? Blanditiis nobis beatae tenetur accusamus praesentium adipisci at doloribus commodi cupiditate! At, ratione, est? Inventore nisi id nam delectus nobis doloremque sunt nemo perspiciatis, distinctio sit repudiandae, eaque nihil officiis eligendi similique voluptatem consectetur placeat error ea, deserunt. Dignissimos, impedit itaque! Quam, excepturi. Ipsam excepturi porro minus, cum iusto illo reprehenderit commodi nulla, rem quam dolor debitis eum aliquid quidem velit voluptates a ratione at quasi sapiente maxime. Sit, numquam, minus!</p>
+        
+        <br>
+        
+        <img class="float-right" src="dvm.jpg">
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deleniti odit iste quidem nesciunt magni velit temporibus, suscipit modi aliquam enim numquam ipsum dolores, vel soluta a fugiat? Sed, vero. Assumenda, deserunt, voluptatum facilis provident magni totam alias dolores dolorum quo quia explicabo minima, eveniet tempora placeat. Beatae magnam voluptatum tempora in suscipit, recusandae ipsa voluptates nesciunt, autem, itaque eligendi! Porro repellat sequi natus debitis ab, veritatis magni distinctio quam adipisci tempora doloremque voluptatum ex voluptate maxime sed, odio modi quod incidunt facere suscipit placeat dolorem, non nemo dolores maiores. Accusantium sit a molestiae, cumque, reprehenderit soluta ratione possimus. </p>
+        
+        <p> Maiores vero, eius, iure voluptas inventore est cupiditate quis laudantium? Blanditiis nobis beatae tenetur accusamus praesentium adipisci at doloribus commodi cupiditate! At, ratione, est? Inventore nisi id nam delectus nobis doloremque sunt nemo perspiciatis, distinctio sit repudiandae, eaque nihil officiis eligendi similique voluptatem consectetur placeat error ea, deserunt. Dignissimos, impedit itaque! Quam, excepturi. Ipsam excepturi porro minus, cum iusto illo reprehenderit commodi nulla, rem quam dolor debitis eum aliquid quidem velit voluptates a ratione at quasi sapiente maxime. Sit, numquam, minus!</p>
+        
+        <img class="float-left" src="dvm.jpg">
+        
+        <br>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deleniti odit iste quidem nesciunt magni velit temporibus, suscipit modi aliquam enim numquam ipsum dolores, vel soluta a fugiat? Sed, vero. Assumenda, deserunt, voluptatum facilis provident magni totam alias dolores dolorum quo quia explicabo minima, eveniet tempora placeat. Beatae magnam voluptatum tempora in suscipit, recusandae ipsa voluptates nesciunt, autem, itaque eligendi! Porro repellat sequi natus debitis ab, veritatis magni distinctio quam adipisci tempora doloremque voluptatum ex voluptate maxime sed, odio modi quod incidunt facere suscipit placeat dolorem, non nemo dolores maiores. Accusantium sit a molestiae, cumque, reprehenderit soluta ratione possimus. </p>
+        
+        <p> Maiores vero, eius, iure voluptas inventore est cupiditate quis laudantium? Blanditiis nobis beatae tenetur accusamus praesentium adipisci at doloribus commodi cupiditate! At, ratione, est? Inventore nisi id nam delectus nobis doloremque sunt nemo perspiciatis, distinctio sit repudiandae, eaque nihil officiis eligendi similique voluptatem consectetur placeat error ea, deserunt. Dignissimos, impedit itaque! Quam, excepturi. Ipsam excepturi porro minus, cum iusto illo reprehenderit commodi nulla, rem quam dolor debitis eum aliquid quidem velit voluptates a ratione at quasi sapiente maxime. Sit, numquam, minus!</p>
+        
+        <img class="float-right" src="dvm.jpg">
+        
+        <br>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deleniti odit iste quidem nesciunt magni velit temporibus, suscipit modi aliquam enim numquam ipsum dolores, vel soluta a fugiat? Sed, vero. Assumenda, deserunt, voluptatum facilis provident magni totam alias dolores dolorum quo quia explicabo minima, eveniet tempora placeat. Beatae magnam voluptatum tempora in suscipit, recusandae ipsa voluptates nesciunt, autem, itaque eligendi! Porro repellat sequi natus debitis ab, veritatis magni distinctio quam adipisci tempora doloremque voluptatum ex voluptate maxime sed, odio modi quod incidunt facere suscipit placeat dolorem, non nemo dolores maiores. Accusantium sit a molestiae, cumque, reprehenderit soluta ratione possimus. </p>
+        
+        <p> Maiores vero, eius, iure voluptas inventore est cupiditate quis laudantium? Blanditiis nobis beatae tenetur accusamus praesentium adipisci at doloribus commodi cupiditate! At, ratione, est? Inventore nisi id nam delectus nobis doloremque sunt nemo perspiciatis, distinctio sit repudiandae, eaque nihil officiis eligendi similique voluptatem consectetur placeat error ea, deserunt. Dignissimos, impedit itaque! Quam, excepturi. Ipsam excepturi porro minus, cum iusto illo reprehenderit commodi nulla, rem quam dolor debitis eum aliquid quidem velit voluptates a ratione at quasi sapiente maxime. Sit, numquam, minus!</p>
+        
+        <img class="float-left" src="dvm.jpg">
+        
+        <br>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deleniti odit iste quidem nesciunt magni velit temporibus, suscipit modi aliquam enim numquam ipsum dolores, vel soluta a fugiat? Sed, vero. Assumenda, deserunt, voluptatum facilis provident magni totam alias dolores dolorum quo quia explicabo minima, eveniet tempora placeat. Beatae magnam voluptatum tempora in suscipit, recusandae ipsa voluptates nesciunt, autem, itaque eligendi! Porro repellat sequi natus debitis ab, veritatis magni distinctio quam adipisci tempora doloremque voluptatum ex voluptate maxime sed, odio modi quod incidunt facere suscipit placeat dolorem, non nemo dolores maiores. Accusantium sit a molestiae, cumque, reprehenderit soluta ratione possimus. </p>
+        
+        <p> Maiores vero, eius, iure voluptas inventore est cupiditate quis laudantium? Blanditiis nobis beatae tenetur accusamus praesentium adipisci at doloribus commodi cupiditate! At, ratione, est? Inventore nisi id nam delectus nobis doloremque sunt nemo perspiciatis, distinctio sit repudiandae, eaque nihil officiis eligendi similique voluptatem consectetur placeat error ea, deserunt. Dignissimos, impedit itaque! Quam, excepturi. Ipsam excepturi porro minus, cum iusto illo reprehenderit commodi nulla, rem quam dolor debitis eum aliquid quidem velit voluptates a ratione at quasi sapiente maxime. Sit, numquam, minus!</p>
+        
+        <img class="float-right" src="dvm.jpg">
+        
+        <br>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deleniti odit iste quidem nesciunt magni velit temporibus, suscipit modi aliquam enim numquam ipsum dolores, vel soluta a fugiat? Sed, vero. Assumenda, deserunt, voluptatum facilis provident magni totam alias dolores dolorum quo quia explicabo minima, eveniet tempora placeat. Beatae magnam voluptatum tempora in suscipit, recusandae ipsa voluptates nesciunt, autem, itaque eligendi! Porro repellat sequi natus debitis ab, veritatis magni distinctio quam adipisci tempora doloremque voluptatum ex voluptate maxime sed, odio modi quod incidunt facere suscipit placeat dolorem, non nemo dolores maiores. Accusantium sit a molestiae, cumque, reprehenderit soluta ratione possimus. </p>
+        
+        <p> Maiores vero, eius, iure voluptas inventore est cupiditate quis laudantium? Blanditiis nobis beatae tenetur accusamus praesentium adipisci at doloribus commodi cupiditate! At, ratione, est? Inventore nisi id nam delectus nobis doloremque sunt nemo perspiciatis, distinctio sit repudiandae, eaque nihil officiis eligendi similique voluptatem consectetur placeat error ea, deserunt. Dignissimos, impedit itaque! Quam, excepturi. Ipsam excepturi porro minus, cum iusto illo reprehenderit commodi nulla, rem quam dolor debitis eum aliquid quidem velit voluptates a ratione at quasi sapiente maxime. Sit, numquam, minus!</p>
+        
+        <img class="float-left" src="dvm.jpg">
+        
+        <br>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deleniti odit iste quidem nesciunt magni velit temporibus, suscipit modi aliquam enim numquam ipsum dolores, vel soluta a fugiat? Sed, vero. Assumenda, deserunt, voluptatum facilis provident magni totam alias dolores dolorum quo quia explicabo minima, eveniet tempora placeat. Beatae magnam voluptatum tempora in suscipit, recusandae ipsa voluptates nesciunt, autem, itaque eligendi! Porro repellat sequi natus debitis ab, veritatis magni distinctio quam adipisci tempora doloremque voluptatum ex voluptate maxime sed, odio modi quod incidunt facere suscipit placeat dolorem, non nemo dolores maiores. Accusantium sit a molestiae, cumque, reprehenderit soluta ratione possimus. </p>
+        
+        <p> Maiores vero, eius, iure voluptas inventore est cupiditate quis laudantium? Blanditiis nobis beatae tenetur accusamus praesentium adipisci at doloribus commodi cupiditate! At, ratione, est? Inventore nisi id nam delectus nobis doloremque sunt nemo perspiciatis, distinctio sit repudiandae, eaque nihil officiis eligendi similique voluptatem consectetur placeat error ea, deserunt. Dignissimos, impedit itaque! Quam, excepturi. Ipsam excepturi porro minus, cum iusto illo reprehenderit commodi nulla, rem quam dolor debitis eum aliquid quidem velit voluptates a ratione at quasi sapiente maxime. Sit, numquam, minus!</p>
+        
+        <img class="float-right" src="dvm.jpg">
+        <br>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deleniti odit iste quidem nesciunt magni velit temporibus, suscipit modi aliquam enim numquam ipsum dolores, vel soluta a fugiat? Sed, vero. Assumenda, deserunt, voluptatum facilis provident magni totam alias dolores dolorum quo quia explicabo minima, eveniet tempora placeat. Beatae magnam voluptatum tempora in suscipit, recusandae ipsa voluptates nesciunt, autem, itaque eligendi! Porro repellat sequi natus debitis ab, veritatis magni distinctio quam adipisci tempora doloremque voluptatum ex voluptate maxime sed, odio modi quod incidunt facere suscipit placeat dolorem, non nemo dolores maiores. Accusantium sit a molestiae, cumque, reprehenderit soluta ratione possimus. </p>
+        
+        <p> Maiores vero, eius, iure voluptas inventore est cupiditate quis laudantium? Blanditiis nobis beatae tenetur accusamus praesentium adipisci at doloribus commodi cupiditate! At, ratione, est? Inventore nisi id nam delectus nobis doloremque sunt nemo perspiciatis, distinctio sit repudiandae, eaque nihil officiis eligendi similique voluptatem consectetur placeat error ea, deserunt. Dignissimos, impedit itaque! Quam, excepturi. Ipsam excepturi porro minus, cum iusto illo reprehenderit commodi nulla, rem quam dolor debitis eum aliquid quidem velit voluptates a ratione at quasi sapiente maxime. Sit, numquam, minus!</p>
+        
+        <br>
+        
+<!--        Animation JS begins here     -->
+   
+    <script>
+        
+        let imgLeft = document.getElementsByClassName('float-left');
+        let imgRight = document.getElementsByClassName('float-right');
+        
+        window.onload = function() {
+            for (let i = 0; i < imgLeft.length; i++) {
+                imgLeft[i].style.animation = 'slideRight 1s ease forwards';
+            }
+            for (let i = 0; i < imgRight.length; i++) {
+                imgRight[i].style.animation = 'slideLeft 1s ease forwards';
+            }
+        };
+        
+    </script>
+    </body>
+    
+</html>
