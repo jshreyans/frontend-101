@@ -76,10 +76,6 @@
             // Multiplying 360 gives the portion of circle to be rotated to obtain that fraction
             var minutes = (time.getMinutes() / 60) * 360;
             var seconds = (time.getSeconds() / 60) * 360;
-
-//            hourHand.style.transform = "rotateZ(" + hours + "deg)";
-//            minuteHand.style.transform = "rotateZ(" + minutes + "deg)";
-//            secondHand.style.transform = "rotateZ(" + seconds + "deg)";
             
             hourHand.style.transform = `rotateZ(${hours}deg)`;
             minuteHand.style.transform = `rotateZ(${minutes}deg)`;
