@@ -32,18 +32,19 @@
             
             @media all and (max-width: 600px) {
                 img {
-                    width: 100vw;
-                    height: 100vw;
+                    width: 96.5vw;
+                    height: 95vw;
                     opacity: 0;
+                    margin: 0;
                 }
             }
             
             @keyframes slideLeft {
-                from { transform: translateX(100px); opacity: 0}
+                from { transform: translateX(150px); opacity: 0}
                 to { transform: translateX(0); opacity: 1}
             }
             @keyframes slideRight {
-                from { transform: translateX(-100px); opacity: 0}
+                from { transform: translateX(-150px); opacity: 0}
                 to { transform: translateX(0); opacity: 1}
             }
         </style>     
@@ -51,7 +52,7 @@
     
     <body>
         
-        <p>  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deleniti odit iste quidem nesciunt magni velit temporibus, suscipit modi aliquam enim numquam ipsum dolores, vel soluta a fugiat? Sed, vero. Assumenda, deserunt, voluptatum facilis provident magni totam alias dolores dolorum quo quia explicabo minima, eveniet tempora placeat. Beatae magnam voluptatum tempora in suscipit, recusandae ipsa voluptates nesciunt, autem, itaque eligendi! Porro repellat sequi natus debitis ab, veritatis magni distinctio quam adipisci tempora doloremque voluptatum ex voluptate maxime sed, odio modi quod incidunt facere suscipit placeat dolorem, non nemo dolores maiores. Accusantium sit a molestiae, cumque, reprehenderit soluta ratione possimus.  </p>
+        <p>  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deleniti odit iste quidem nesciunt magni velit temporibus, suscipit modi aliquam enim numquam ipsum dolores, vel soluta a fugiat? Sed, vero. Assumenda, deserunt, voluptatum facilis provident magni totam alias dolores dolorum quo quia explicabo minima, eveniet tempora placeat. Beatae magnam voluptatum tempora in suscipit, recusandae ipsa voluptates nesciunt, autem, itaque eligendi! Porro repellat sequi natus debitis ab, veritatis magni distinctio quam adipisci tempora doloremque voluptatum ex voluptate maxime sed, odio modi quod incidunt facere suscipit placeat dolorem, non nemo dolores maiores. Accusantium sit a molestiae, cumque, reprehenderit soluta ratione possimus.</p>
         
         <br>
         
@@ -122,17 +123,36 @@
    
     <script>
         
-        let imgLeft = document.getElementsByClassName('float-left');
-        let imgRight = document.getElementsByClassName('float-right');
+        let imgLeft = document.getElementsByClassName('float-left');    //TokenList of all left-align images
+        let imgRight = document.getElementsByClassName('float-right');  //TokenList of all right-align images
         
-        window.onload = function() {
-            for (let i = 0; i < imgLeft.length; i++) {
-                imgLeft[i].style.animation = 'slideRight 1s ease forwards';
+        function showImage() {
+            for (let targetLeftImage of imgLeft) {     // Iterate over every left-align image
+                
+                // Compare heights and offSet to make left images visible
+                if (targetLeftImage.getBoundingClientRect().top <= document.documentElement.clientHeight && targetLeftImage.getBoundingClientRect().top > (-targetLeftImage.getBoundingClientRect().height)) {
+                    targetLeftImage.style.animation = 'slideRight 1s ease forwards';
+                }
             }
-            for (let i = 0; i < imgRight.length; i++) {
-                imgRight[i].style.animation = 'slideLeft 1s ease forwards';
+            
+            for (let targetRightImage of imgRight) {    // Iterate over every right-align image
+                
+                // Compare heights and margins to make right image visible
+                if (targetRightImage.getBoundingClientRect().top <= document.documentElement.clientHeight && targetRightImage.getBoundingClientRect().top > (-targetRightImage.getBoundingClientRect().height)) {
+                    targetRightImage.style.animation = 'slideLeft 1s ease forwards';
+                }
             }
         };
+    
+        // For images already in viewport
+        window.onload = function() {            
+            showImage();
+        };
+        
+        // For images that come into viewport on scrolling
+        document.addEventListener('scroll', function() {
+            showImage();
+        });
         
     </script>
     </body>
