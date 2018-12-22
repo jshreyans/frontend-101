@@ -72,11 +72,11 @@
     <script>
         var isShiftPressed = 0;
         var previousCheck, nowcheck;
-        var inputs = document.getElementsByTagName('input');
+        var inputsList = document.getElementsByTagName('input');
         
         var checkBetween = function(start, end) {
             for (var i = start; i<=end; i++) {
-                inputs[i].checked = true;
+                inputsList[i].checked = true;
             }
         };
         
@@ -95,7 +95,7 @@
 //            
 //            nowCheck = this.id;
 //            
-//            if (isShiftPressed && inputs[nowCheck].checked==true && inputs[previousCheck].checked==true) {
+//            if (isShiftPressed && inputsList[nowCheck].checked==true && inputsList[previousCheck].checked==true) {
 //                
 //                if(nowCheck > previousCheck) {
 //                    checkBetween(previousCheck, nowCheck);
@@ -106,17 +106,17 @@
 //            }
 //        };
 //        
-//        for (let i = 0; i <=  inputs.length; i++) {
-//            inputs[i].addEventListener('click', clicked);
+//        for (let i = 0; i <=  inputsList.length; i++) {
+//            inputsList[i].addEventListener('click', clicked);
 //        }
         
-        for(var i = 0; i < inputs.length ; i++) {
+        for(var input of inputsList) {
             
-            inputs[i].addEventListener('click', function() {
+            input.addEventListener('click', function() {
                 
                 nowCheck = this.id;
 //                console.log(nowcheck);
-                if (isShiftPressed && inputs[nowCheck].checked==true && inputs[previousCheck].checked==true) {  
+                if (isShiftPressed && inputsList[nowCheck].checked==true && inputsList[previousCheck].checked==true) {  
                 
                     if(nowCheck > previousCheck) {
                         checkBetween(previousCheck, nowCheck);
@@ -132,8 +132,8 @@
         }
         
         window.onload = function(){
-            for(var i = 0; i < inputs.length; i++){
-                inputs[i].checked = false;
+            for(var input of inputsList){
+                input.checked = false;
             }
         }
     </script>
