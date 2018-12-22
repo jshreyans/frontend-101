@@ -22,3 +22,5 @@
         - Simple multiple selection form 
     - B4 : Sequence Detector
         - Show hidden text when user types in a certain sequence of keys using `eventListener` 
+    - B5 : Image Slide In
+        - Image slide animations in a document triggered by `scroll` event 
