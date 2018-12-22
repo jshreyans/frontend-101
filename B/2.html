@@ -1,4 +1,4 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -73,9 +73,14 @@
             var minutes = time.getMinutes() * 6;
             var seconds = time.getSeconds() * 6;
 
-            hourHand.style.transform = "rotateZ(" + hours + "deg)";
-            minuteHand.style.transform = "rotateZ(" + minutes + "deg)";
-            secondHand.style.transform = "rotateZ(" + seconds + "deg)";
+//            hourHand.style.transform = "rotateZ(" + hours + "deg)";
+//            minuteHand.style.transform = "rotateZ(" + minutes + "deg)";
+//            secondHand.style.transform = "rotateZ(" + seconds + "deg)";
+            
+            hourHand.style.transform = `rotateZ(${hours}deg)`;
+            minuteHand.style.transform = `rotateZ(${minutes}deg)`;
+            secondHand.style.transform = `rotateZ(${seconds}deg)`;
+            
         },1000);
     </script>
 </body>
