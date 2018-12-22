@@ -69,9 +69,13 @@
             var minuteHand = document.getElementById("min");
             var secondHand = document.getElementById("sec");
 
-            var hours = time.getHours() > 12 ? ((time.getHours()-12)/12)*360 : (time.getHours()/12)*360;
-            var minutes = time.getMinutes() * 6;
-            var seconds = time.getSeconds() * 6;
+            // to get hours, check if hours > 12(24-hr format) and assign rotation accordingly
+            var hours = time.getHours() > 12 ? ((time.getHours()-12)/12)*360 : (time.getHours()/12)*360;   
+            
+            // Dividing by 60 converts minutes(seconds) to fraction of hour(minute)
+            // Multiplying 360 gives the portion of circle to be rotated to obtain that fraction
+            var minutes = (time.getMinutes() / 60) * 360;
+            var seconds = (time.getSeconds() / 60) * 360;
 
 //            hourHand.style.transform = "rotateZ(" + hours + "deg)";
 //            minuteHand.style.transform = "rotateZ(" + minutes + "deg)";
