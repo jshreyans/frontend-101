@@ -1,4 +1,4 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -10,6 +10,7 @@
         body {
             margin: 0;
             padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -39,6 +40,15 @@
             transform-origin: 100% 100%;
             bottom: 300px;
         }
+        .center {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background: black;
+            z-index: 10;
+            position: absolute;
+            left: 296px;
+        }
         #hr {
             height: 170px;
             width: 4px;
@@ -59,6 +69,7 @@
         <div class="hour" id="hr"></div>
         <div class="minute" id="min"></div>
         <div class="second" id="sec"></div>
+        <div class="center"></div>
     </div>
 
     <script>
@@ -69,13 +80,18 @@
             var minuteHand = document.getElementById("min");
             var secondHand = document.getElementById("sec");
 
-            var hours = time.getHours() > 12 ? ((time.getHours()-12)/12)*360 : (time.getHours()/12)*360;
-            var minutes = time.getMinutes() * 6;
-            var seconds = time.getSeconds() * 6;
-
-            hourHand.style.transform = "rotateZ(" + hours + "deg)";
-            minuteHand.style.transform = "rotateZ(" + minutes + "deg)";
-            secondHand.style.transform = "rotateZ(" + seconds + "deg)";
+            // to get hours, check if hours > 12(24-hr format) and assign rotation accordingly
+            var hours = time.getHours() > 12 ? ((time.getHours()-12)/12)*360 : (time.getHours()/12)*360;   
+            
+            // Dividing by 60 converts minutes(seconds) to fraction of hour(minute)
+            // Multiplying 360 gives the portion of circle to be rotated to obtain that fraction
+            var minutes = (time.getMinutes() / 60) * 360;
+            var seconds = (time.getSeconds() / 60) * 360;
+            
+            hourHand.style.transform = `rotateZ(${hours}deg)`;
+            minuteHand.style.transform = `rotateZ(${minutes}deg)`;
+            secondHand.style.transform = `rotateZ(${seconds}deg)`;
+            
         },1000);
     </script>
 </body>

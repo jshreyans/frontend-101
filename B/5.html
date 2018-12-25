@@ -12,6 +12,7 @@
                 padding: 0;
                 font-family: sans-serif;
                 font-size: 1.2em;
+                overflow-x: hidden;
             }
             p {
                 line-height: 28px;
@@ -145,14 +146,13 @@
         };
     
         // For images already in viewport
-        window.onload = function() {            
-            showImage();
-        };
+        window.onload = showImage();
         
         // For images that come into viewport on scrolling
-        document.addEventListener('scroll', function() {
-            showImage();
+        document.addEventListener('scroll', function(){
+            showImage()
         });
+        
         
     </script>
     </body>
