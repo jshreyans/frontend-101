@@ -10,6 +10,7 @@
         body {
             margin: 0;
             padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -39,6 +40,15 @@
             transform-origin: 100% 100%;
             bottom: 300px;
         }
+        .center {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background: black;
+            z-index: 10;
+            position: absolute;
+            left: 296px;
+        }
         #hr {
             height: 170px;
             width: 4px;
@@ -59,6 +69,7 @@
         <div class="hour" id="hr"></div>
         <div class="minute" id="min"></div>
         <div class="second" id="sec"></div>
+        <div class="center"></div>
     </div>
 
     <script>
