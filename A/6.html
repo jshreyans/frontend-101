@@ -18,29 +18,47 @@
             }
             
 /*--------------------Animation for D-----------------------*/
-	        .st0 {
+	        .dash0 {
                 stroke:#fff;
-                stroke-width: 2;
+                stroke-width: 6;
                 stroke-dasharray: 2945;
-                animation: dash-d 3s linear forwards;
+                animation: dash-d 2s ease-out forwards;
             }
             @keyframes dash-d {
-                from {stroke-dashoffset: 2945; fill: #000}
+                from {stroke-dashoffset: 2949; fill: #000}
                 to {stroke-dashoffset: 0; fill: #fff}
             }
+            .fill0 {
+                stroke:none;
+                animation: fill-d 1s linear forwards;
+                animation-delay: 1s;
+            }
+            @keyframes fill-d {
+                from {fill: #000}
+                to {fill: #fff}
+            }
 /*---------------------Animation for V----------------------*/
-            .st1 {
+            .dash1 {
                 stroke: #ff3f8a;
-                stroke-width: 2;
+                stroke-width: 6;
                 stroke-dasharray: 1874;
-                animation: filler-v 3s linear forwards;
+                animation: filler-v 1.5s ease-out forwards;
             }
             @keyframes filler-v {
                 from {stroke-dashoffset: 1874; fill: #000}
                 to {stroke-dashoffset: 0; fill: #ff3f8a}
             }
+            .fill1 {
+                stroke: none;
+                animation: fill-v 0.5s linear forwards;
+                animation-delay: 1s
+            }
+            @keyframes fill-v {
+                from {fill: #000}
+                to { fill: #ff3f8a}
+            }
 /*---------------------Aniation for M-----------------------*/
-            .st2 {
+            .dash2 {
                 stroke: #fff;
                 stroke-width: 2;
                 stroke-dasharray: 1927;
@@ -55,9 +73,13 @@
     <body>
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 1080">
 
-        <polygon class="st0" id="D" points="560.5,68.5 865.5,459.5 865.5,584.5 635.5,286.5 636.5,814.5 737.5,727.5 785.5,795.5 560.5,979.5 "/>
-        <polygon class="st1" points="757.5,672.5 933.5,891.5 1244.5,460.5 1244.5,320.5 936.5,747.5 757.5,547.5 "/>
-        <polygon class="st2" points="1288.5,152.5 1288.5,906.5 1370.5,987.5 1370.5,56.5 "/>
+        <polygon class="dash0" points="560.5,68.5 865.5,459.5 865.5,584.5 635.5,286.5 636.5,814.5 737.5,727.5 785.5,795.5 560.5,979.5 "/>
+        <polygon class="fill0" points="560.5,68.5 865.5,459.5 865.5,584.5 635.5,286.5 636.5,814.5 737.5,727.5 785.5,795.5 560.5,979.5 "/>
+        
+        <polygon class="dash1" points="757.5,672.5 933.5,891.5 1244.5,460.5 1244.5,320.5 936.5,747.5 757.5,547.5 "/>
+        <polygon class="fill1" points="757.5,672.5 933.5,891.5 1244.5,460.5 1244.5,320.5 936.5,747.5 757.5,547.5 "/>
+        
+        <polygon class="dash2" points="1288.5,152.5 1288.5,906.5 1370.5,987.5 1370.5,56.5 "/>
         
         </svg>
     </body>
