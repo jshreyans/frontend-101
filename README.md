@@ -8,6 +8,7 @@
     - A5 : 3D buttons
     - A6 : DVM Logo
     - A7 : The X factor
+    - A8 : Clip Clip Clip
     
 2. Set B 
     - B1 : Drums
