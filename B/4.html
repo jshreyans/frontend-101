@@ -53,11 +53,13 @@
             
             document.addEventListener('keyup',function(e) {
                 var breaker = document.createElement('br');
-                keyList.push(e.key);
+                if (e.keyCode !== 16 && e.key !== "CapsLock") {
+                    keyList.push(e.key);
+                }
                 
                 slicedArray = keyList.slice(-3);  // Array of last 3 elements of keyList
                 
-//                console.log(slicedArray);
+                console.log(slicedArray);
 //                console.log(keyList);
                 if (slicedArray[0] === 'D') {
                   if (String(slicedArray) === 'D,V,M') {  // Check if last 3 charaters typed are D,V,M

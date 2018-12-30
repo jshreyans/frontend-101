@@ -12,9 +12,11 @@
     - A5 : 3D buttons
         - 3D buttons made using CSS transforms 
     - A6 : DVM Logo
-        - Implementation of SVG Line Animations to draw the DVM Logo
+        - Implementation of SVG Line Animations to trace the DVM Logo
     - A7 : The X Factor
         - iPhoneX Home Screen made using circular gradient backgrounds in CSS
+    - A8 : Clip Clip Clip 
+        - Implementation of CSS `clip-path` property
 2. Set B 
     - B1 : Drums
         - A simple Launchpad implementation using `keydown` and `keyup` events
