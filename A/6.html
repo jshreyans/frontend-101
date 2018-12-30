@@ -22,16 +22,16 @@
                 stroke:#fff;
                 stroke-width: 6;
                 stroke-dasharray: 2945;
-                animation: dash-d 2s ease-out forwards;
+                animation: dash-d 1.5s ease-out forwards;
             }
             @keyframes dash-d {
-                from {stroke-dashoffset: 2949; fill: #000}
-                to {stroke-dashoffset: 0; fill: #fff}
+                from {stroke-dashoffset: 2949}
+                to {stroke-dashoffset: 0}
             }
             .fill0 {
                 stroke:none;
-                animation: fill-d 1s linear forwards;
-                animation-delay: 1s;
+                animation: fill-d 0.5s linear forwards;
+                animation-delay: 1.6s;
             }
             @keyframes fill-d {
                 from {fill: #000}
@@ -42,16 +42,16 @@
                 stroke: #ff3f8a;
                 stroke-width: 6;
                 stroke-dasharray: 1874;
-                animation: filler-v 1.5s ease-out forwards;
+                animation: dash-v 1s ease-out forwards;
             }
-            @keyframes filler-v {
-                from {stroke-dashoffset: 1874; fill: #000}
-                to {stroke-dashoffset: 0; fill: #ff3f8a}
+            @keyframes dash-v {
+                from {stroke-dashoffset: 1874}
+                to {stroke-dashoffset: 0}
             }
             .fill1 {
                 stroke: none;
                 animation: fill-v 0.5s linear forwards;
-                animation-delay: 1s
+                animation-delay: 1.5s
             }
             @keyframes fill-v {
                 from {fill: #000}
@@ -60,13 +60,24 @@
 /*---------------------Aniation for M-----------------------*/
             .dash2 {
                 stroke: #fff;
-                stroke-width: 2;
+                stroke-width: 6;
                 stroke-dasharray: 1927;
-                animation: filler-m 2s ease forwards;
+                stroke-dashoffset: 1927;
+                animation: filler-m 1s ease-out forwards;
+                animation-delay: 0.5s;
             }            
             @keyframes filler-m {
-                from {stroke-dashoffset: 1927; fill: #000}
-                to {stroke-dashoffset: 0; fill: #fff}
+                from {stroke-dashoffset: 1927}
+                to {stroke-dashoffset: 0}
+            }
+            .fill2 {
+                stroke: none;
+                animation: fill-m 0.5s linear forwards;
+                animation-delay: 1.8s;
+            }
+            @keyframes fill-m {
+                from {fill: #000}
+                to {fill: #fff}
             }
         </style>
     </head>
@@ -80,6 +91,7 @@
         <polygon class="fill1" points="757.5,672.5 933.5,891.5 1244.5,460.5 1244.5,320.5 936.5,747.5 757.5,547.5 "/>
         
         <polygon class="dash2" points="1288.5,152.5 1288.5,906.5 1370.5,987.5 1370.5,56.5 "/>
+        <polygon class="fill2" points="1288.5,152.5 1288.5,906.5 1370.5,987.5 1370.5,56.5 "/>
         
         </svg>
     </body>
