@@ -4,6 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width= device-width, initial-scale=1.0">
+        <title>frontend-101 B6</title>
         
         <style>
             body {
@@ -82,17 +83,45 @@
     <body>
         <div class="wrapper">
             <div class="frontend">FRONTEND TECH</div>
-            <div class="item-container">
-                <div class="item">
-                    <span class="item-content">Javascript</span>
-                    <span class="delete"> x </span>
-                </div>
-            </div>
+            <div class="item-container"></div>
             <div class="input">
                 <input type="text" class="input-box">
-                <button class="add-item"> Add </button>
+                <button class="add-item" onclick="addItem()"> Add </button>
             </div>
         </div>
+        
+        <script>
+            document.getElementsByClassName('input-box')[0].addEventListener('keyup',function(e){
+                if (e.key == 'Enter') {
+                    addItem();
+                }
+            });
+            function addItem() {
+                if (document.getElementsByTagName('input')[0].value !== " ") {
+                    
+                    let newItem = document.createElement('div');
+                    newItem.classList.add('item');
+                    
+                    let newItemContent = document.createElement('span');
+                    newItemContent.classList.add('item-content')
+                    let content = document.getElementsByTagName('input')[0].value;
+                    newItemContent.innerHTML = content;
+                    
+                    let cross = document.createElement('span');
+                    cross.classList.add('delete');
+                    cross.innerHTML = 'x';
+                    cross.addEventListener('click', removeItem);
+                    
+                    newItem.appendChild(newItemContent);
+                    newItem.appendChild(cross);
+                    document.getElementsByClassName('item-container')[0].appendChild(newItem);
+                }
+            };
+            function removeItem() {
+                let container = document.getElementsByClassName('item-container')[0];
+                container.removeChild(container.lastElementChild);
+            };
+        </script>
     </body>
     
 </html>
