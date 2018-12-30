@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width= device-width, initial-scale=1.0">
+        
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: sans-serif;
+            }
+            .wrapper {
+                width: 450px;
+                height: 600px;
+                border: 10px solid rgb(200,200,200);
+                background: #fff;
+                padding: 0;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+            }
+            .frontend {
+                font-size: 2em;
+                width: 100%;
+/*                position: absolute;*/
+/*                line-height: 50px;*/
+                text-align: center;
+/*                top: 20px;*/
+            }
+            .item-container {
+                height: 400px;
+                width: 90%;
+/*                position: absolute;*/
+                border: 4px solid rgb(200,200,200);
+            }
+            .input{
+                width: 90%;
+                height: 50px;
+                display: flex;
+                justify-content: space-around;
+            }
+            .input-box {
+                height: 35px;
+                width: 300px;
+                font-size: 1.1em;
+            }
+            .add-item {
+                width: 60px;
+                height: 50px;
+                font-size: 1em;
+            }
+            .item {
+                width: 100%;
+                height: 70px;
+/*                background: rgb(200,200,200);*/
+                line-height: 70px;
+                font-size: 1.2em;
+                border-bottom: 4px solid rgb(200,200,200);
+            }
+            .item-content {
+                margin-left: 20px;
+            }
+            .delete {
+                font-size: 1.2em;
+                float: right;
+                margin-right: 20px;
+            }
+            .delete:hover, .add-item:hover {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="wrapper">
+            <div class="frontend">FRONTEND TECH</div>
+            <div class="item-container">
+                <div class="item">
+                    <span class="item-content">Javascript</span>
+                    <span class="delete"> x </span>
+                </div>
+            </div>
+            <div class="input">
+                <input type="text" class="input-box">
+                <button class="add-item"> Add </button>
+            </div>
+        </div>
+    </body>
+    
+</html>
