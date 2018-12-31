@@ -32,8 +32,8 @@
         <div id="key"> Type in DVM to reveal the hidden message </div>
         
         <script>
-            var slicedArray;
-            var keyList = new Array();
+            let slicedArray;
+            let keyList = [];
 //            document.addEventListener('keydown',function(e) {
 //                
 //                console.log(e.key);
@@ -51,8 +51,8 @@
 //                }
 //            }); 
             
-            document.addEventListener('keypress',function(e) {
-                var breaker = document.createElement('br');
+            document.addEventListener('keypress',e => {
+                let breaker = document.createElement('br');
 //                if (e.keyCode !== 16 && e.key !== "CapsLock") {
 //                    keyList.push(e.key);
 //                }
@@ -68,7 +68,7 @@
 //                    document.getElementById('hidden').style.display = 'block';
 //                    document.removeEventListener();
                     
-                    var text = document.createTextNode('Front-end Development is fun!');
+                    let text = document.createTextNode('Front-end Development is fun!');
                     document.body.appendChild(text);
                     document.body.appendChild(breaker);
                     
