@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frontend-101 B9</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;   
+            font-family: sans-serif; 
+        }
+        #search {
+            padding: 5px;
+            width: 200px;
+            margin: 10px 0;
+        }
+        #search-button {
+            margin-bottom: 20px;
+        }
+        .name {
+            width: auto;
+            line-height: 40px;
+            min-height: 30px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.5em; 
+        }
+        .avatar {
+            width: 250px;
+            height: 250px;
+            margin: 5px;
+            background-size: cover;
+        }
+        .bio {
+            width: 500px;
+            line-height: 30px;
+            min-height: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        #search-button {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1> Fetch GitHub Profile</h1>
+    <p> Enter the username and click 'Search' to print the user's name, GitHub avatar and bio</p>
+    <input id="search" type="text">
+    <button id="search-button">Search</button>
+
+    <div class="name"></div>
+    <div class="avatar"></div>
+    <div class="bio"></div>
+
+    <script>
+        let searchButton = document.getElementById("search-button");
+        let userInput = document.getElementById("search");
+        let name = document.getElementsByClassName("name")[0];
+        let avatar = document.getElementsByClassName("avatar")[0];
+        let bio = document.getElementsByClassName("bio")[0];
+
+        const fetchUser = async (userID) => {
+            const fetchCall = await fetch(`https://api.github.com/users/${userID}`);
+            const userData = await fetchCall.json();
+            return {data: userData};
+        };
+
+        const printData = () => {
+            fetchUser(userInput.value).then((res) => {
+                console.log(res);
+                name.innerHTML = res.data.name;
+                avatar.style.background = `url(${res.data.avatar_url})`;
+                avatar.style.backgroundSize = "cover";
+                bio.innerHTML = res.data.bio;
+            });
+        };
+
+        searchButton.addEventListener('click', () => {
+            console.log('Hello!');
+            printData();
+        });
+    </script>
+</body>
+</html>
