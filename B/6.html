@@ -31,16 +31,13 @@
             .frontend {
                 font-size: 2em;
                 width: 100%;
-/*                position: absolute;*/
-/*                line-height: 50px;*/
                 text-align: center;
-/*                top: 20px;*/
             }
             .item-container {
                 height: 400px;
                 width: 90%;
-/*                position: absolute;*/
                 border: 4px solid rgb(200,200,200);
+                overflow-y: scroll;
             }
             .input{
                 width: 90%;
@@ -61,7 +58,6 @@
             .item {
                 width: 100%;
                 height: 70px;
-/*                background: rgb(200,200,200);*/
                 line-height: 70px;
                 font-size: 1.2em;
                 border-bottom: 4px solid rgb(200,200,200);
@@ -91,36 +87,76 @@
         </div>
         
         <script>
-            document.getElementsByClassName('input-box')[0].addEventListener('keyup',function(e){
+            let count;
+            let indexToRemove;
+            const displayItem = (valueToDisplay) => {
+                    // Create new item div in the container
+                    let newItem = document.createElement('div');
+                    newItem.classList.add('item');
+                    newItem.setAttribute("id", count);
+                    
+                    // Assign item name as entered by user
+                    let newItemContent = document.createElement('span');
+                    newItemContent.classList.add('item-content')
+                    let content = valueToDisplay;
+                    newItemContent.innerHTML = content;
+                    
+                    // Add fucntionality to remvove the item from list
+                    let cross = document.createElement('span');
+                    cross.classList.add('delete');
+                    cross.innerHTML = 'x';
+                    cross.setAttribute("onclick", "removeItem(this)");
+                    
+                    // Append everything to the container
+                    newItem.appendChild(newItemContent);
+                    newItem.appendChild(cross);
+                    document.querySelector(".item-container").appendChild(newItem);
+
+                    count++;
+            };
+
+            const addItem = () => {
+                if (document.querySelector(".input-box").value != "") {
+                    let content = document.querySelector(".input-box").value;
+                    displayItem(content);
+
+                    document.querySelector(".input-box").value = "";
+
+                    items.push(content.toString());
+                    localStorage.setItem("cookieList", JSON.stringify(items));
+                }
+            };
+
+            const removeItem = (current) => {
+                current.parentNode.parentNode.removeChild(current.parentNode);
+                indexToRemove = current.parentNode.id;
+                console.log(indexToRemove);
+
+                items.splice(indexToRemove, 1);
+                console.log(items);
+                localStorage.setItem("cookieList", JSON.stringify(items));
+            };
+
+            let items;
+
+            window.onload = () => {
+                if (localStorage.getItem("cookieList") == null) items = []
+                else {
+                    items = JSON.parse(localStorage.getItem("cookieList")); 
+                    for (let i = 0; i < items.length; i++) {
+                        displayItem(items[i]);
+                    }
+                }
+                count = items.length;
+            };
+            
+
+            document.querySelector(".input-box").addEventListener('keyup',e => {
                 if (e.key == 'Enter') {
                     addItem();
                 }
             });
-            function addItem() {
-                if (document.getElementsByTagName('input')[0].value !== " ") {
-                    
-                    let newItem = document.createElement('div');
-                    newItem.classList.add('item');
-                    
-                    let newItemContent = document.createElement('span');
-                    newItemContent.classList.add('item-content')
-                    let content = document.getElementsByTagName('input')[0].value;
-                    newItemContent.innerHTML = content;
-                    
-                    let cross = document.createElement('span');
-                    cross.classList.add('delete');
-                    cross.innerHTML = 'x';
-                    cross.addEventListener('click', removeItem);
-                    
-                    newItem.appendChild(newItemContent);
-                    newItem.appendChild(cross);
-                    document.getElementsByClassName('item-container')[0].appendChild(newItem);
-                }
-            };
-            function removeItem() {
-                let container = document.getElementsByClassName('item-container')[0];
-                container.removeChild(container.lastElementChild);
-            };
+        
         </script>
     </body>
     
