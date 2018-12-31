@@ -16,3 +16,5 @@
     - B3 : Multiple Select
     - B4 : Sequence Detector
     - B5 : Image Slide-in
+    - B6 : FrontEnd tech
+    - B10 : Fetch GitHub Profile
