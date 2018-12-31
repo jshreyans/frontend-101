@@ -51,11 +51,12 @@
 //                }
 //            }); 
             
-            document.addEventListener('keyup',function(e) {
+            document.addEventListener('keypress',function(e) {
                 var breaker = document.createElement('br');
-                if (e.keyCode !== 16 && e.key !== "CapsLock") {
-                    keyList.push(e.key);
-                }
+//                if (e.keyCode !== 16 && e.key !== "CapsLock") {
+//                    keyList.push(e.key);
+//                }
+                keyList.push(e.key);
                 
                 slicedArray = keyList.slice(-3);  // Array of last 3 elements of keyList
                 
