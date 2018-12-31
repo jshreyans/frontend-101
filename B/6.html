@@ -115,6 +115,17 @@
                     count++;
             };
 
+            // Function to reorder DOMTokenList of items with correct indices
+            // Should run when new item is added or removed
+            const reorder = (arr) => {
+                let i = 0;
+                for (let elem of arr) {
+                    elem.id = i;
+                    i++;
+                }
+            };
+
+            // Function to display added item and add it to localstorage
             const addItem = () => {
                 if (document.querySelector(".input-box").value != "") {
                     let content = document.querySelector(".input-box").value;
@@ -124,17 +135,23 @@
 
                     items.push(content.toString());
                     localStorage.setItem("cookieList", JSON.stringify(items));
+                    reorder(document.getElementsByClassName("item"));
+                    // console.log(`After addition: ${items}`);
                 }
             };
 
             const removeItem = (current) => {
-                current.parentNode.parentNode.removeChild(current.parentNode);
-                indexToRemove = current.parentNode.id;
-                console.log(indexToRemove);
+                // indexToRemove = current.parentNode.id;
+                if (current.parentNode.id > items.length) indexToRemove = items.length - 1;
+                else indexToRemove = current.parentNode.id; 
+                // console.log(indexToRemove);
 
                 items.splice(indexToRemove, 1);
-                console.log(items);
+                // console.log(items);
                 localStorage.setItem("cookieList", JSON.stringify(items));
+
+                current.parentNode.parentNode.removeChild(current.parentNode);
+                reorder(document.getElementsByClassName("item"));
             };
 
             let items;
