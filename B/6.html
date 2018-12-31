@@ -86,38 +86,72 @@
         </div>
         
         <script>
+            const displayItem = (valueToDisplay) => {
+                    // Create new item div in the container
+                    let newItem = document.createElement('div');
+                    newItem.classList.add('item');
+                    
+                    // Assign item name as entered by user
+                    let newItemContent = document.createElement('span');
+                    newItemContent.classList.add('item-content')
+                    let content = valueToDisplay;
+                    newItemContent.innerHTML = content;
+                    
+                    // Add fucntionality to remvove the item from list
+                    let cross = document.createElement('span');
+                    cross.classList.add('delete');
+                    cross.innerHTML = 'x';
+                    cross.setAttribute("onclick", "removeItem(this)");
+                    // cross.addEventListener('click', () => {
+                    //     this.parentNode.parentNode.removeChild(this.parentNode);
+                    // });
+                    
+                    // Append everything to the container
+                    newItem.appendChild(newItemContent);
+                    newItem.appendChild(cross);
+                    document.querySelector(".item-container").appendChild(newItem);
+            };
+
+            const addItem = () => {
+                if (document.querySelector(".input-box").value != "") {
+                    let content = document.querySelector(".input-box").value 
+                    displayItem(content);
+
+                    document.querySelector(".input-box").value = "";
+
+                    items.push(content.toString());
+                    localStorage.setItem("cookiesList", JSON.stringify(items));
+                }
+            };
+
+            const removeItem = (current) => {
+                current.parentNode.parentNode.removeChild(current.parentNode);
+
+
+            };
+
+            let items;
+
+            if (localStorage.getItem("cookiesList") == null) {
+                items = [];
+            }
+            else {
+                items = JSON.parse(localStorage.getItem("cookiesList")); 
+                for (let i = 0; i < items.length; i++) {
+                    displayItem(items[i]);
+                }
+            }
+
             document.querySelector(".input-box").addEventListener('keyup',e => {
                 if (e.key == 'Enter') {
                     addItem();
                 }
             });
-            const addItem = () => {
-                if (document.querySelector(".input-box").value != "") {
-                    
-                    let newItem = document.createElement('div');
-                    newItem.classList.add('item');
-                    
-                    let newItemContent = document.createElement('span');
-                    newItemContent.classList.add('item-content')
-                    let content = document.querySelector(".input-box").value;
-                    newItemContent.innerHTML = content;
-                    
-                    let cross = document.createElement('span');
-                    cross.classList.add('delete');
-                    cross.innerHTML = 'x';
-                    cross.addEventListener('click', removeItem);
-                    
-                    newItem.appendChild(newItemContent);
-                    newItem.appendChild(cross);
-                    document.getElementsByClassName('item-container')[0].appendChild(newItem);
-
-                    document.querySelector(".input-box").value = "";
-                }
-            };
-            const removeItem = () => {
-                let container = document.getElementsByClassName('item-container')[0];
-                container.removeChild(container.lastElementChild);
-            };
+            
+            // const removeItem = () => {
+            //     let container = document.getElementsByClassName('item-container')[0];
+            //     container.removeChild(container.lastElementChild);
+            // };
         </script>
     </body>
     
