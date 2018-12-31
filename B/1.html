@@ -87,7 +87,7 @@
     </div>
     
     <script>
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', e => {
             
             switch(e.key) {
                 case 'a': 
@@ -139,7 +139,7 @@
             
         });
         
-        document.addEventListener('keyup', function(f) {
+        document.addEventListener('keyup', f => {
             
 //            let keyList = ['a','s','d','f','g','h','j','k','l'];
 //            
@@ -178,7 +178,7 @@
 //        }); 
         
         for (let i = 0; i < document.getElementsByTagName('span').length; i++) {
-            document.getElementsByTagName('span')[i].addEventListener('mousedown', function() {
+            document.getElementsByTagName('span')[i].addEventListener('mousedown',() => {
                 switch (i) {
                     case 0: 
                         item1.style.fontSize = "20px";
@@ -228,7 +228,7 @@
                 }
             });
             
-            document.getElementsByTagName('span')[i].addEventListener('mouseup',function(e) {
+            document.getElementsByTagName('span')[i].addEventListener('mouseup',e => {
                 switch(i) {
                     case 0:
                         item1.style.fontSize = "23px";
