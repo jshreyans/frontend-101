@@ -28,3 +28,7 @@
         - Show hidden text when user types in a certain sequence of keys using `eventListener` 
     - [B5 : Image Slide In](https://jshreyans551.github.io/frontend-101/B/5.html)
         - Image slide animations in a document triggered by `scroll` event 
+    - [B6 : FrontEnd Tech](https://jshreyans551.github.io/frontend-101/B/6.html)
+        - Using JSON and `localstorage` to save user entered data locally
+    - [B10 : Additional Task(Github Profile)](https://jshreyans551.github.io/frontend-101/B/10.html)
+        - Using `async/await` and `fetch` API to print a GitHub user's public profile data
