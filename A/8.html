@@ -1,4 +1,4 @@
-<!DOCTYPe html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -6,141 +6,197 @@
         
         <style>
             body {
-                padding: 0;
                 margin: 0;
-                height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;    
-            }
-            .wrapper-D {
-                height: 493px;
-                width: 328px;
-                position: relative;
-                background: rgb(200,200,200);
                 padding: 0;
+                display: flex;
+                height: 100vh;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .wrapper {
+                width: 328px;
+                height: 493px;
+                transition: all 1.5s ease;
+                position: relative;
             }
             span {
+                transition: all 1.5s ease;
+                height: 100%;
+                width: 100%;
                 position: absolute;
-                z-index: 3;
-                padding: 0;
-                margin: 0;
             }
-            #c1 {
-                width: 74.4px;
-                height: 51.45px;
-                clip-path: polygon(5% 0, 0 100%, 100% 0);
-                background: rgb(186, 31, 51);
-                transform: translateX(83px);
+            #d1, #d8, #d11 {
+                background: rgb(186,31,51);
             }
-            #c2 {
-                width: 217px;
-                height: 129px;
-                transform: translateX(83px);
-                clip-path: polygon(0 39.88%, 34.28% 0, 100% 100%);
+            #d2, #d6, #d10 {
                 background: rgb(245, 213, 71);
             }
-            #c3 {
-                transform: translateX(156.12px);
-                width: 143px;
-                height: 129px;
-                clip-path: polygon(0 0, 100% 100%, 70% 30%);
+            #d3, #d7, #d13 {
                 background: rgb(22,25,37);
-            }
-            #c4 {
-                width: 102px;
-                height: 154px;
-                background: rgb(239, 246, 238);
-                clip-path: polygon(0 0, 100% 100%, 70% 17%);
-                transform: translate(227px, 102.7px)
-            }
-            #c5 {
-                width: 102px;
-                height: 154px;
-                background: rgb(20, 70, 160);
-                transform: translate(227px, 102.7px);
-                clip-path: polygon(0 0,100% 100%, 40% 100%);
-            }
-            #c6 {
-                width: 102px;
-                height: 154px;
-                background: rgb(245, 213, 71);
-                transform: translate(227px, 236.7px);
-                clip-path: polygon(0 100%, 100% 12.5%, 40% 12.5%)
-            }  
-            #c7 {
-                width: 102px;
-                height: 154px;
-                background: rgb(22,25,37);
-                transform: translate(227px, 236.7px);
-                clip-path: polygon(0 100%, 100% 12.5%, 70% 83%)
             } 
-            #c8 {
-                width: 143px;
-                height: 129px;
-                transform: translate(156.12px, 364px);
-                background: rgb(186, 31, 51);
-                clip-path: polygon(0 100%, 100% 0, 70% 70%);
-            }
-            #c9 {
-                width: 217px;
-                height: 129px;
-                background: rgb(20, 70, 160);
-                transform: translate(83px, 364px);
-                clip-path: polygon(0 60.12%, 34.28% 100%, 100% 0);
-            }
-            #c10 {
-                width: 74.4px;
-                height: 51.45px;
-                background: rgb(245, 213, 71);
-                transform: translate(83px,441.55px);
-                clip-path: polygon(0 0, 5% 100%, 100% 100%);
-            }
-            #c11 {
-                width: 87px;
-                height: 236px;
-                clip-path: polygon(80% 0, 100% 100%, 0 100%);
-                background: rgb(186, 31, 51);
-                transform: translate(0, 257px)
-            }
-            #c12 {
-                width: 87px;
-                height: 236px;
-                clip-path: polygon(25% 0%, 0% 100%, 80% 0%);
+            #d4, #d12 {
                 background: rgb(239, 246, 238);
-                transform: translate(0,257px)
             }
-            #c13 {
-                width: 87px;
-                height: 257px;
-                clip-path: polygon(0% 0%, 80% 100%, 25% 100%);
-                background: rgb(22,25,37);
+            #d5, #d9, #d14 {
+                background: rgb(20,70,160);
             }
-            #c14 {
-                width: 87px;
-                height: 257px;
-                clip-path: polygon(0% 0%,80% 100%,100% 0%);
-                background: rgb(20, 70, 160);
-            }
+            #d1 {clip-path: polygon(26.52% 0, 48.037% 0, 25.39% 10.43%)}      
+            #d2 {clip-path: polygon(25.308% 10.43%, 48.037% 0, 91.46% 26.16%)}
+            #d3 {clip-path: polygon(48.307% 0, 91.46% 26.16%, 78.11% 7.8%)}
+            #d4 {clip-path: polygon(69.2% 20.83%, 91.46% 26.16%, 100% 52.06%)}
+            #d5 {clip-path: polygon(69.2% 20.83%, 81.64% 52.06%, 100% 52.06%)}
+            #d6 {clip-path: polygon(69.2% 79.17%, 81.64% 52.06%, 100% 52.06%)}
+            #d7 {clip-path: polygon(69.2% 79.17%, 91.46% 73.84%, 100% 52.06%)}
+            #d8 {clip-path: polygon(48.1% 100%, 91.46% 73.84%, 78.11% 92.2%)}
+            #d9 {clip-path: polygon(25.308% 89.57%, 48.037% 100%, 91.46% 73.84%);}
+            #d10 {clip-path: polygon(26.52% 100%, 48.037% 100%, 25.39% 89.57%);}
+            #d11 {clip-path: polygon(21.21% 52.12%, 26.52% 100%, 0% 100%)}
+            #d12 {clip-path: polygon(6.6% 52.12%, 21.21% 52.12%, 0 100%)}
+            #d13 {clip-path: polygon(6.6% 52.12%, 21.21% 52.12%, 0 0)}
+            #d14 {clip-path: polygon(21.21% 52.12%, 26.52% 0, 0% 0)}
+            
         </style>
     </head>
-    
     <body>
-        <div class="wrapper-D">
-            <span id="c1"></span>
-            <span id="c2"></span>
-            <span id="c3"></span>
-            <span id="c4"></span>
-            <span id="c5"></span>
-            <span id="c6"></span>
-            <span id="c7"></span>
-            <span id="c8"></span>
-            <span id="c9"></span>
-            <span id="c10"></span>
-            <span id="c11"></span>
-            <span id="c12"></span>
-            <span id="c13"></span>
-            <span id="c14"></span>
+        <p>Use arrow keys</p>
+        <div class="wrapper">
+            <span id="d1"></span>
+            <span id="d2"></span>
+            <span id="d3"></span>
+            <span id="d4"></span>
+            <span id="d5"></span>
+            <span id="d6"></span>
+            <span id="d7"></span>
+            <span id="d8"></span>
+            <span id="d9"></span>
+            <span id="d10"></span>
+            <span id="d11"></span>
+            <span id="d12"></span>
+            <span id="d13"></span>
+            <span id="d14"></span>
         </div>
+        
+        <script>
+            let letter = 'D';
+            
+            let wrapper = document.querySelector(".wrapper");
+            let d1 = document.querySelector("#d1");
+            let d2 = document.querySelector("#d2");
+            let d3 = document.querySelector("#d3");
+            let d4 = document.querySelector("#d4");
+            let d5 = document.querySelector("#d5");
+            let d6 = document.querySelector("#d6");
+            let d7 = document.querySelector("#d7");
+            let d8 = document.querySelector("#d8");
+            let d9 = document.querySelector("#d9");
+            let d10 = document.querySelector("#d10");
+            let d11 = document.querySelector("#d11");
+            let d12 = document.querySelector("#d12");
+            let d13 = document.querySelector("#d13");
+            let d14 = document.querySelector("#d14");
+            
+            document.addEventListener('keyup', e => {
+                if (!e) e = window.event;
+                
+                if (e.keyCode == 39) {
+                    
+                    if (letter === 'D') letter = 'V'
+                    else if (letter === 'V') letter = 'M'
+                    else if (letter === 'M') letter = 'D';
+                }
+                else if (e.keyCode == 37) {
+                    
+                    if (letter === 'D') letter = 'M';
+                    else if (letter === 'V') letter = 'D'
+                    else if (letter === 'M') letter = 'V';
+                }
+                
+                switch(letter) {
+                    case('D') :
+                        wrapper.style.width = "328px";
+                        
+                        d1.style.background = "rgb(186,31,51)";
+                        d8.style.background = "rgb(186,31,51)";
+                        d11.style.background = "rgb(186,31,51)";
+                        
+                        d2.style.background = "rgb(245, 213, 71)";
+                        d6.style.background = "rgb(245, 213, 71)";
+                        d10.style.background = "rgb(245, 213, 71)";
+                        
+                        d3.style.background = "rgb(22,25,37)";
+                        d7.style.background = "rgb(22,25,37)";
+                        d13.style.background = "rgb(22,25,37)";
+                        
+                        d4.style.background = "rgb(239, 246, 238)";
+                        d12.style.background = "rgb(239, 246, 238)";
+                        
+                        d5.style.background = "rgb(20,70,160)";
+                        d9.style.background = "rgb(20,70,160)";
+                        d14.style.background = "rgb(20,70,160)";
+                        
+                        d1.style.clipPath = "polygon(26.52% 0, 48.037% 0, 25.39% 10.43%)";
+                        d2.style.clipPath = "polygon(25.308% 10.43%, 48.037% 0, 91.46% 26.16%)";
+                        d3.style.clipPath = "polygon(48.307% 0, 91.46% 26.16%, 78.11% 7.8%)";
+                        d4.style.clipPath = "polygon(69.2% 20.83%, 91.46% 26.16%, 100% 52.06%)";
+                        d5.style.clipPath = "polygon(69.2% 20.83%, 81.64% 52.06%, 100% 52.06%)";
+                        d6.style.clipPath = "polygon(69.2% 79.17%, 81.64% 52.06%, 100% 52.06%)";
+                        d7.style.clipPath = "polygon(69.2% 79.17%, 91.46% 73.84%, 100% 52.06%)";
+                        d8.style.clipPath = "polygon(48.1% 100%, 91.46% 73.84%, 78.11% 92.2%)";
+                        d9.style.clipPath = "polygon(25.308% 89.57%, 48.037% 100%, 91.46% 73.84%)";
+                        d10.style.clipPath = "polygon(26.52% 100%, 48.037% 100%, 25.39% 89.57%)";
+                        d11.style.clipPath = "polygon(21.21% 52.12%, 26.52% 100%, 0% 100%)";
+                        d12.style.clipPath = "polygon(6.6% 52.12%, 21.21% 52.12%, 0 100%)";
+                        d13.style.clipPath = "polygon(6.6% 52.12%, 21.21% 52.12%, 0 0)";
+                        d14.style.clipPath = "polygon(21.21% 52.12%, 26.52% 0, 0% 0)";
+                        break;
+                        
+                    case('V') :
+                        wrapper.style.width = "396px";
+                        
+                        d13.style.background = "rgb(186,31,51)";
+                        d13.style.clipPath = "polygon(83.09% 0, 100% 0, 76.52% 14.6%)";
+                        
+                        d11.style.background = "rgb(239, 246, 238)";
+                        d11.style.clipPath = "polygon(100% 0, 76.39% 14.6%, 90.54% 20.38%)";
+                        
+                        d12.style.background = "rgb(22,25,37)";
+                        d12.style.clipPath = "polygon(76.39% 14.6%, 90.54% 20.38%, 78.54% 45.43%)";
+                        
+                        d10.style.clipPath = "polygon(76.39% 14.6%, 78.54% 45.43%, 65.41% 43.2%)";
+                        d9.style.clipPath = "polygon(78.54% 45.43%, 65.41% 43.2%, 49.75% 75.05%)";
+                        
+                        d8.style.background = "rgb(239, 246, 238)"
+                        d8.style.clipPath = "polygon(59.85% 83.16%, 78.54% 45.43%, 50.15% 74.85%)";
+                        
+                        d7.style.background = "rgb(186,31,51)";
+                        d7.style.clipPath = "polygon(59.85% 83.16%, 50.15% 74.85%, 50% 100%)";
+                        
+                        d6.style.background = "rgb(20,70,160)";
+                        d6.style.clipPath = "polygon(50.05% 74.85%, 40.15% 83.16%, 50% 100%)";
+                        
+                        d5.style.background = "rgb(22,25,37)";
+                        d5.style.clipPath = "polygon(21.46% 45.43%, 50.05% 74.85%, 40.15% 83.16%)";
+                        
+                        d4.style.background = "rgb(245, 213, 71)";
+                        d4.style.clipPath = "polygon(21.46% 45.43%, 34.59% 43.2%, 50.25% 75.05%)";
+                        
+                        d3.style.background = "rgb(20,70,160)";
+                        d3.style.clipPath = "polygon(21.46% 45.43%, 23.61% 14.6%, 34.59% 43.2%)";
+                        
+                        d2.style.background = "rgb(186,31,51)";
+                        d2.style.clipPath = "polygon(23.61% 14.6%, 9.46% 20.38%, 21.46% 45.43%)"
+                        
+                        d1.style.background = "rgb(245, 213, 71)";
+                        d1.style.clipPath = "polygon(0 0, 23.61% 14.6%, 9.46% 20.38%)";
+                        
+                        d14.style.background = "rgb(22,25,37";
+                        d14.style.clipPath = "polygon(0 0, 16.91% 0, 23.48% 14.6%)";
+                        break;
+                };
+            });
+            
+            
+        </script>
     </body>
 </html>
