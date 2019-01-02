@@ -24,43 +24,43 @@
                 position: absolute;
                 top: 20px;
                 font-size: 20px;
-                
             }
             span {
                 height: 100%;
                 width: 100%;
                 position: absolute;
+                transition-timing-function: cubic-bezier(0.61, 0.05, 0.18, 1);
             }
-            #d1, #d8, #d11 {
+            #d2, #d9, #d12 {
                 background: rgb(186,31,51);
             }
-            #d2, #d6, #d10 {
+            #d3, #d7, #d11 {
                 background: rgb(245, 213, 71);
             }
-            #d3, #d7, #d13 {
+            #d4, #d8, #d14 {
                 background: rgb(22,25,37);
             } 
-            #d4, #d12 {
+            #d5, #d13 {
                 background: rgb(239, 246, 238);
             }
-            #d5, #d9, #d14 {
+            #d6, #d10, #d1 {
                 background: rgb(20,70,160);
             }
             
-            #d1 {clip-path: polygon(26.52% 0, 48.037% 0, 25.39% 10.43%)}      
-            #d2 {clip-path: polygon(25.308% 10.43%, 48.037% 0, 91.46% 26.16%)}
-            #d3 {clip-path: polygon(48.307% 0, 91.46% 26.16%, 78.11% 7.8%)}
-            #d4 {clip-path: polygon(69.2% 20.83%, 91.46% 26.16%, 100% 52.06%)}
-            #d5 {clip-path: polygon(69.2% 20.83%, 81.64% 52.06%, 100% 52.06%)}
-            #d6 {clip-path: polygon(69.2% 79.17%, 81.64% 52.06%, 100% 52.06%)}
-            #d7 {clip-path: polygon(69.2% 79.17%, 91.46% 73.84%, 100% 52.06%)}
-            #d8 {clip-path: polygon(48.1% 100%, 91.46% 73.84%, 78.11% 92.2%)}
-            #d9 {clip-path: polygon(25.308% 89.57%, 48.037% 100%, 91.46% 73.84%);}
-            #d10 {clip-path: polygon(26.52% 100%, 48.037% 100%, 25.39% 89.57%);}
-            #d11 {clip-path: polygon(21.21% 52.12%, 26.52% 100%, 0% 100%)}
-            #d12 {clip-path: polygon(6.6% 52.12%, 21.21% 52.12%, 0 100%)}
-            #d13 {clip-path: polygon(6.6% 52.12%, 21.21% 52.12%, 0 0)}
-            #d14 {clip-path: polygon(21.21% 52.12%, 26.52% 0, 0% 0)}
+            #d1 {clip-path: polygon(21.21% 52.12%, 26.52% 0, 0% 0)}
+            #d2 {clip-path: polygon(26.52% 0, 48.037% 0, 25.39% 10.43%)}      
+            #d3 {clip-path: polygon(25.308% 10.43%, 48.037% 0, 91.46% 26.16%)}
+            #d4 {clip-path: polygon(48.307% 0, 91.46% 26.16%, 78.11% 7.8%)}
+            #d5 {clip-path: polygon(69.2% 20.83%, 91.46% 26.16%, 100% 52.06%)}
+            #d6 {clip-path: polygon(69.2% 20.83%, 81.64% 52.06%, 100% 52.06%)}
+            #d7 {clip-path: polygon(69.2% 79.17%, 81.64% 52.06%, 100% 52.06%)}
+            #d8 {clip-path: polygon(69.2% 79.17%, 91.46% 73.84%, 100% 52.06%)}
+            #d9 {clip-path: polygon(48.1% 100%, 91.46% 73.84%, 78.11% 92.2%)}
+            #d10 {clip-path: polygon(25.308% 89.57%, 48.037% 100%, 91.46% 73.84%);}
+            #d11 {clip-path: polygon(26.52% 100%, 48.037% 100%, 25.39% 89.57%);}
+            #d12 {clip-path: polygon(21.21% 52.12%, 26.52% 100%, 0% 100%)}
+            #d13 {clip-path: polygon(6.6% 52.12%, 21.21% 52.12%, 0 100%)}
+            #d14 {clip-path: polygon(6.6% 52.12%, 21.21% 52.12%, 0 0)}
             
         </style>
     </head>
@@ -107,10 +107,9 @@
                 if (!e) e = window.event;
                 
                 if (e.keyCode == 39) {
-                    for (i = 1, j = 0.1, k=0.4; i<15; i++, j+=0.04, k+=0.05) {
-                        document.querySelector("#d"+i).style.transition = `all ${j}s`;
-                        document.querySelector("#d"+i).style.transitionDelay = `${k}s`;
-                        document.querySelector("#d"+i).style.transitionTimingFunction = "cubic-bezier(0.61, 0.05, 0.18, 1)";
+                    for (i = 1, j = 0.1, k=0.4; i < 15; i++, j+=0.05, k+=0.03) {
+                        document.querySelector(`#d${i}`).style.transition = `all ${j}s`;
+                        document.querySelector(`#d${i}`).style.transitionDelay = `${j}s`;
                     }
                     
                     if (letter === 'D') letter = 'V'
@@ -121,6 +120,10 @@
 //                    for (i=14,j=0.2; i>= 0; i--, j+=0.2) {
 //                        document.querySelector("#d"+i).style.transitionDelay = `${j}s`;
 //                    }
+                    for (i = 14, j = 0.1, k=0.4; i > 0; i--, j+=0.05, k+=0.03) {
+                        document.querySelector(`#d${i}`).style.transition = `all ${j}s`;
+                        document.querySelector(`#d${i}`).style.transitionDelay = `${j}s`;
+                    }
                     
                     if (letter === 'D') letter = 'M';
                     else if (letter === 'V') letter = 'D'
@@ -131,85 +134,85 @@
                     case('D') :
                         wrapper.style.width = "360px";
                         
-                        d1.style.background = "rgb(186,31,51)";
-                        d8.style.background = "rgb(186,31,51)";
-                        d11.style.background = "rgb(186,31,51)";
+                        d2.style.background = "rgb(186,31,51)";
+                        d9.style.background = "rgb(186,31,51)";
+                        d12.style.background = "rgb(186,31,51)";
                         
-                        d2.style.background = "rgb(245, 213, 71)";
-                        d6.style.background = "rgb(245, 213, 71)";
-                        d10.style.background = "rgb(245, 213, 71)";
+                        d3.style.background = "rgb(245, 213, 71)";
+                        d7.style.background = "rgb(245, 213, 71)";
+                        d11.style.background = "rgb(245, 213, 71)";
                         
-                        d3.style.background = "rgb(22,25,37)";
-                        d7.style.background = "rgb(22,25,37)";
-                        d13.style.background = "rgb(22,25,37)";
+                        d4.style.background = "rgb(22,25,37)";
+                        d8.style.background = "rgb(22,25,37)";
+                        d14.style.background = "rgb(22,25,37)";
                         
-                        d4.style.background = "rgb(239, 246, 238)";
-                        d12.style.background = "rgb(239, 246, 238)";
+                        d5.style.background = "rgb(239, 246, 238)";
+                        d13.style.background = "rgb(239, 246, 238)";
                         
-                        d5.style.background = "rgb(20,70,160)";
-                        d9.style.background = "rgb(20,70,160)";
-                        d14.style.background = "rgb(20,70,160)";
+                        d6.style.background = "rgb(20,70,160)";
+                        d10.style.background = "rgb(20,70,160)";
+                        d1.style.background = "rgb(20,70,160)";
                         
-                        d1.style.clipPath = "polygon(26.52% 0, 48.037% 0, 25.39% 10.43%)";
-                        d2.style.clipPath = "polygon(25.308% 10.43%, 48.037% 0, 91.46% 26.16%)";
-                        d3.style.clipPath = "polygon(48.307% 0, 91.46% 26.16%, 78.11% 7.8%)";
-                        d4.style.clipPath = "polygon(69.2% 20.83%, 91.46% 26.16%, 100% 52.06%)";
-                        d5.style.clipPath = "polygon(69.2% 20.83%, 81.64% 52.06%, 100% 52.06%)";
-                        d6.style.clipPath = "polygon(69.2% 79.17%, 81.64% 52.06%, 100% 52.06%)";
-                        d7.style.clipPath = "polygon(69.2% 79.17%, 91.46% 73.84%, 100% 52.06%)";
-                        d8.style.clipPath = "polygon(48.1% 100%, 91.46% 73.84%, 78.11% 92.2%)";
-                        d9.style.clipPath = "polygon(25.308% 89.57%, 48.037% 100%, 91.46% 73.84%)";
-                        d10.style.clipPath = "polygon(26.52% 100%, 48.037% 100%, 25.39% 89.57%)";
-                        d11.style.clipPath = "polygon(21.21% 52.12%, 26.52% 100%, 0% 100%)";
-                        d12.style.clipPath = "polygon(6.6% 52.12%, 21.21% 52.12%, 0 100%)";
-                        d13.style.clipPath = "polygon(6.6% 52.12%, 21.21% 52.12%, 0 0)";
-                        d14.style.clipPath = "polygon(21.21% 52.12%, 26.52% 0, 0% 0)";
+                        d1.style.clipPath = "polygon(21.21% 52.12%, 26.52% 0, 0% 0)";
+                        d2.style.clipPath = "polygon(26.52% 0, 48.037% 0, 25.39% 10.43%)";
+                        d3.style.clipPath = "polygon(25.308% 10.43%, 48.037% 0, 91.46% 26.16%)";
+                        d4.style.clipPath = "polygon(48.307% 0, 91.46% 26.16%, 78.11% 7.8%)";
+                        d5.style.clipPath = "polygon(69.2% 20.83%, 91.46% 26.16%, 100% 52.06%)";
+                        d6.style.clipPath = "polygon(69.2% 20.83%, 81.64% 52.06%, 100% 52.06%)";
+                        d7.style.clipPath = "polygon(69.2% 79.17%, 81.64% 52.06%, 100% 52.06%)";
+                        d8.style.clipPath = "polygon(69.2% 79.17%, 91.46% 73.84%, 100% 52.06%)";
+                        d9.style.clipPath = "polygon(48.1% 100%, 91.46% 73.84%, 78.11% 92.2%)";
+                        d10.style.clipPath = "polygon(25.308% 89.57%, 48.037% 100%, 91.46% 73.84%)";
+                        d11.style.clipPath = "polygon(26.52% 100%, 48.037% 100%, 25.39% 89.57%)";
+                        d12.style.clipPath = "polygon(21.21% 52.12%, 26.52% 100%, 0% 100%)";
+                        d13.style.clipPath = "polygon(6.6% 52.12%, 21.21% 52.12%, 0 100%)";
+                        d14.style.clipPath = "polygon(6.6% 52.12%, 21.21% 52.12%, 0 0)";
                         break;
                         
                     case('V') :
                         wrapper.style.width = "360px";
                         
-                        d13.style.background = "rgb(186,31,51)";
-                        d13.style.clipPath = "polygon(83.09% 0, 100% 0, 76.52% 14.6%)";
+                        d1.style.background = "rgb(22,25,37)";
+                        d1.style.clipPath = "polygon(0 0, 16.91% 0, 23.48% 14.6%)";
                         
-                        d11.style.background = "rgb(239, 246, 238)";
-                        d11.style.clipPath = "polygon(100% 0, 76.39% 14.6%, 90.54% 20.38%)";
+                        d2.style.background = "rgb(245, 213, 71)";
+                        d2.style.clipPath = "polygon(0 0, 23.61% 14.6%, 9.46% 20.38%)";
+                        
+                        d3.style.background = "rgb(186,31,51)";
+                        d3.style.clipPath = "polygon(23.61% 14.6%, 9.46% 20.38%, 21.46% 45.43%)";
+                        
+                        d4.style.background = "rgb(20,70,160)";
+                        d4.style.clipPath = "polygon(21.46% 45.43%, 23.61% 14.6%, 34.59% 43.2%)";
+                        
+                        d5.style.background = "rgb(245, 213, 71)";
+                        d5.style.clipPath = "polygon(21.46% 45.43%, 34.59% 43.2%, 50.25% 75.05%)";
+                        
+                        d6.style.background = "rgb(22,25,37)";
+                        d6.style.clipPath = "polygon(21.46% 45.43%, 50.05% 74.85%, 40.15% 83.16%)";
+                        
+                        d7.style.background = "rgb(20,70,160)";
+                        d7.style.clipPath = "polygon(50.05% 74.85%, 40.15% 83.16%, 50% 100%)";
+                        
+                        d8.style.background = "rgb(186,31,51)"
+                        d8.style.clipPath = "polygon(59.85% 83.16%, 50.15% 74.85%, 50% 100%)";
+                        
+                        d9.style.background = "rgb(239, 246, 238)";
+                        d9.style.clipPath = "polygon(59.85% 83.16%, 78.54% 45.43%, 50.15% 74.85%)";
+                        
+                        d10.style.background = "rgb(20,70,160)";
+                        d10.style.clipPath = "polygon(78.54% 45.43%, 65.41% 43.2%, 49.75% 75.05%)";
+                        
+                        d11.style.background = "rgb(245, 213, 71)";
+                        d11.style.clipPath = "polygon(76.39% 14.6%, 78.54% 45.43%, 65.41% 43.2%)";
                         
                         d12.style.background = "rgb(22,25,37)";
                         d12.style.clipPath = "polygon(76.39% 14.6%, 90.54% 20.38%, 78.54% 45.43%)";
                         
-                        d10.style.background = "rgb(245, 213, 71)";
-                        d10.style.clipPath = "polygon(76.39% 14.6%, 78.54% 45.43%, 65.41% 43.2%)";
+                        d13.style.background = "rgb(239, 246, 238)";
+                        d13.style.clipPath = "polygon(100% 0, 76.39% 14.6%, 90.54% 20.38%)";
                         
-                        d9.style.background = "rgb(20,70,160)";
-                        d9.style.clipPath = "polygon(78.54% 45.43%, 65.41% 43.2%, 49.75% 75.05%)";
-                        
-                        d8.style.background = "rgb(239, 246, 238)"
-                        d8.style.clipPath = "polygon(59.85% 83.16%, 78.54% 45.43%, 50.15% 74.85%)";
-                        
-                        d7.style.background = "rgb(186,31,51)";
-                        d7.style.clipPath = "polygon(59.85% 83.16%, 50.15% 74.85%, 50% 100%)";
-                        
-                        d6.style.background = "rgb(20,70,160)";
-                        d6.style.clipPath = "polygon(50.05% 74.85%, 40.15% 83.16%, 50% 100%)";
-                        
-                        d5.style.background = "rgb(22,25,37)";
-                        d5.style.clipPath = "polygon(21.46% 45.43%, 50.05% 74.85%, 40.15% 83.16%)";
-                        
-                        d4.style.background = "rgb(245, 213, 71)";
-                        d4.style.clipPath = "polygon(21.46% 45.43%, 34.59% 43.2%, 50.25% 75.05%)";
-                        
-                        d3.style.background = "rgb(20,70,160)";
-                        d3.style.clipPath = "polygon(21.46% 45.43%, 23.61% 14.6%, 34.59% 43.2%)";
-                        
-                        d2.style.background = "rgb(186,31,51)";
-                        d2.style.clipPath = "polygon(23.61% 14.6%, 9.46% 20.38%, 21.46% 45.43%)"
-                        
-                        d1.style.background = "rgb(245, 213, 71)";
-                        d1.style.clipPath = "polygon(0 0, 23.61% 14.6%, 9.46% 20.38%)";
-                        
-                        d14.style.background = "rgb(22,25,37)";
-                        d14.style.clipPath = "polygon(0 0, 16.91% 0, 23.48% 14.6%)";
+                        d14.style.background = "rgb(186,31,51)";
+                        d14.style.clipPath = "polygon(83.09% 0, 100% 0, 76.52% 14.6%)";
                         break;
                         
                     case('M') :
