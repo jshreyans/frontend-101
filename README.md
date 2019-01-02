@@ -16,7 +16,7 @@
     - [A7 : The X Factor](https://jshreyans551.github.io/frontend-101/A/7.html)
         - iPhoneX Home Screen made using circular gradient backgrounds in CSS
     - [A8 : Clip Clip Clip](https://jshreyans551.github.io/frontend-101/A/8.html) 
-        - Implementation of CSS `clip-path` property
+        - Animating letters in DVM using `clip-path` and basic JS
 2. Set B 
     - [B1 : Drums](https://jshreyans551.github.io/frontend-101/B/1.html)
         - A simple Launchpad implementation using `keydown` and `keyup` events
