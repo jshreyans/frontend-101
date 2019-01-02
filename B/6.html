@@ -111,12 +111,14 @@
                     newItem.appendChild(newItemContent);
                     newItem.appendChild(cross);
                     document.querySelector(".item-container").appendChild(newItem);
-
+                    
+                    reorder(document.getElementsByClassName("item"));
+                    
                     count++;
             };
 
-            // Function to reorder DOMTokenList of items with correct indices
-            // Should run when new item is added or removed
+            // Function to assign correct id's to DOMTokenList of items
+            // Should run when new item is added/removed/displayed on reload
             const reorder = (arr) => {
                 let i = 0;
                 for (let elem of arr) {
@@ -127,15 +129,15 @@
 
             // Function to display added item and add it to localstorage
             const addItem = () => {
-                if (document.querySelector(".input-box").value != "") {
-                    let content = document.querySelector(".input-box").value;
+                if ((document.querySelector(".input-box").value).trim() != "") {
+                    let content = (document.querySelector(".input-box").value).trim();
                     displayItem(content);
 
                     document.querySelector(".input-box").value = "";
 
+                    reorder(document.getElementsByClassName("item"));
                     items.push(content.toString());
                     localStorage.setItem("cookieList", JSON.stringify(items));
-                    reorder(document.getElementsByClassName("item"));
                     // console.log(`After addition: ${items}`);
                 }
             };
@@ -144,10 +146,10 @@
                 // indexToRemove = current.parentNode.id;
                 if (current.parentNode.id > items.length) indexToRemove = items.length - 1;
                 else indexToRemove = current.parentNode.id; 
-                // console.log(indexToRemove);
+                 console.log(indexToRemove);
 
                 items.splice(indexToRemove, 1);
-                // console.log(items);
+                 console.log(items);
                 localStorage.setItem("cookieList", JSON.stringify(items));
 
                 current.parentNode.parentNode.removeChild(current.parentNode);
@@ -156,16 +158,14 @@
 
             let items;
 
-            window.onload = () => {
-                if (localStorage.getItem("cookieList") == null) items = []
-                else {
-                    items = JSON.parse(localStorage.getItem("cookieList")); 
-                    for (let i = 0; i < items.length; i++) {
-                        displayItem(items[i]);
-                    }
+            if (localStorage.getItem("cookieList") == null) items = []
+            else {
+                items = JSON.parse(localStorage.getItem("cookieList")); 
+                for (let i = 0; i < items.length; i++) {
+                    displayItem(items[i]);
                 }
-                count = items.length;
-            };
+            }
+            count = items.length;
             
 
             document.querySelector(".input-box").addEventListener('keyup',e => {
