@@ -31,4 +31,7 @@
     - [B6 : FrontEnd Tech](https://jshreyans551.github.io/frontend-101/B/6.html)
         - Using JSON and `localstorage` to save user entered data locally
     - [B10 : Additional Task(Github Profile)](https://jshreyans551.github.io/frontend-101/B/10.html)
-        - Using `async/await` and `fetch` API to print a GitHub user's public profile data
+        - GitHub profile finder made using 3 methods:
+            - `fetch` API
+            - jQuery/AJAX
+            - `XMLHttpRequest`
