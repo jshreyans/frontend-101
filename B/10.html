@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -21,9 +20,7 @@
             width: 200px;
             margin: 10px 0;
         }
-        #search-button {
-            margin-bottom: 20px;
-        }
+
         .name {
             width: auto;
             line-height: 40px;
@@ -45,48 +42,121 @@
             margin: 30px 0;
             text-align: center;
         }
-        #search-button {
-            display: block;
+        .button-display {
+            display: inline-block;
+            padding: 10px 0;
         }
+        
     </style>
 </head>
 <body>
     <h1> Fetch GitHub Profile</h1>
     <p> Enter the username and click 'Search' to print the user's name, GitHub avatar and bio</p>
     <input id="search" type="text">
-    <button id="search-button">Search</button>
+    <div class="button-display">
+        <button id="search-button-1">Search with fetch()</button>
+        <button id="search-button-2">jQuery/AJAX Search</button>
+        <button id="search-button-3">XMLRequest Search</button>
+    </div>
 
     <div class="name"></div>
     <div class="avatar"></div>
     <div class="bio"></div>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script>
-        let searchButton = document.getElementById("search-button");
         let userInput = document.getElementById("search");
         let name = document.getElementsByClassName("name")[0];
         let avatar = document.getElementsByClassName("avatar")[0];
         let bio = document.getElementsByClassName("bio")[0];
 
-        const fetchUser = async (userID) => {
-            const fetchCall = await fetch(`https://api.github.com/users/${userID}`);
-            const userData = await fetchCall.json();
-            return {data: userData};
+        let profileMethods = {
+
+            // ---------------------------- fetch API call ---------------------------------
+            useFetchAPI: () => {
+                let searchButton = document.getElementById("search-button-1");
+                const fetchUser = async (userID) => {
+                    const fetchCall = await fetch(`https://api.github.com/users/${userID}`);
+                    const userData = await fetchCall.json();
+                    return {data: userData};
+                };
+        
+                const printData = () => {
+                    fetchUser(userInput.value).then((res) => {
+                        console.log(res);
+                        name.innerHTML = res.data.name;
+                        avatar.style.background = `url(${res.data.avatar_url})`;
+                        avatar.style.backgroundSize = "cover";
+                        bio.innerHTML = res.data.bio;
+                    });
+                };
+            
+                searchButton.addEventListener('click', () => {
+                    console.log('Hello!');
+                    printData();
+                });
+            }, 
+
+
+            // ------------------------------ jQuery/AJAX call -------------------------------
+            useJquery: () => {
+                $("#search-button-2").on('click', function() {
+                    let userName = $("#search").val();
+                    console.log(userName);
+                
+                    $.ajax({
+                        url: `https://api.github.com/users/${userName}`,
+                    
+                    }).done(function(user) {
+                        console.log(user);
+                    
+                        $(".name").html(user.name);
+                        // $(".avatar").css("background","url("+user.avatar_url+")");
+                        $(".avatar").css("background",`url(${user.avatar_url})`);
+                        $(".avatar").css("background-size","cover");
+                        $(".bio").html(user.bio);
+                    });
+                });
+                
+            },
+
+            // ---------------------------- XMLHttpRequest call --------------------------------
+            useXMLRequest: () => {
+                let searchButton = document.getElementById("search-button-3");
+                const printData = () => {
+                    let xhr = new XMLHttpRequest();
+                    let userName = document.querySelector("#search").value;
+
+                    xhr.open('GET',`https://api.github.com/users/${userName}`);
+                    xhr.send();
+
+                    xhr.onload = () => {
+                        if (xhr.status !== 200) {
+                            name.innerHTML = 'Error! User not found';
+                        }
+                        else {
+                            var user = JSON.parse(xhr.responseText);
+                            console.log(user);  
+                        
+                            name.innerHTML = user.name;
+                            avatar.style.background = `url(${user.avatar_url})`;
+                            avatar.style.backgroundSize = "cover";
+                            bio.innerHTML = user.bio;
+                        }
+                    };
+                };
+
+                searchButton.addEventListener('click', () => {
+                    console.log('Hello!');
+                    printData();
+                });
+            }
         };
 
-        const printData = () => {
-            fetchUser(userInput.value).then((res) => {
-                console.log(res);
-                name.innerHTML = res.data.name;
-                avatar.style.background = `url(${res.data.avatar_url})`;
-                avatar.style.backgroundSize = "cover";
-                bio.innerHTML = res.data.bio;
-            });
-        };
+        document.querySelector("#search-button-1").addEventListener("click", profileMethods.useFetchAPI());
+        document.querySelector("#search-button-2").addEventListener("click", profileMethods.useJquery());
+        document.querySelector("#search-button-3").addEventListener("click", profileMethods.useXMLRequest());
 
-        searchButton.addEventListener('click', () => {
-            console.log('Hello!');
-            printData();
-        });
     </script>
 </body>
 </html>
