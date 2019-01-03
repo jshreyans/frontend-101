@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>frontend-101 B9</title>
+    <title>frontend-101 B10</title>
 
     <style>
         body {
@@ -65,16 +65,18 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script>
-        let userInput = document.getElementById("search");
-        let name = document.getElementsByClassName("name")[0];
-        let avatar = document.getElementsByClassName("avatar")[0];
-        let bio = document.getElementsByClassName("bio")[0];
+        
+        let name = document.querySelector(".name");
+        let avatar = document.querySelector(".avatar");
+        let bio = document.querySelector(".bio");
 
         let profileMethods = {
 
             // ---------------------------- fetch API call ---------------------------------
             useFetchAPI: () => {
-                let searchButton = document.getElementById("search-button-1");
+                let userInput = document.querySelector("#search");
+                let searchButton = document.querySelector("#search-button-1");
+
                 const fetchUser = async (userID) => {
                     const fetchCall = await fetch(`https://api.github.com/users/${userID}`);
                     const userData = await fetchCall.json();
@@ -83,7 +85,7 @@
         
                 const printData = () => {
                     fetchUser(userInput.value).then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         name.innerHTML = res.data.name;
                         avatar.style.background = `url(${res.data.avatar_url})`;
                         avatar.style.backgroundSize = "cover";
@@ -92,7 +94,7 @@
                 };
             
                 searchButton.addEventListener('click', () => {
-                    console.log('Hello!');
+                    // console.log('Hello!');
                     printData();
                 });
             }, 
@@ -102,16 +104,15 @@
             useJquery: () => {
                 $("#search-button-2").on('click', function() {
                     let userName = $("#search").val();
-                    console.log(userName);
+                    // console.log(userName);
                 
                     $.ajax({
                         url: `https://api.github.com/users/${userName}`,
                     
                     }).done(function(user) {
-                        console.log(user);
+                        // console.log(user);
                     
                         $(".name").html(user.name);
-                        // $(".avatar").css("background","url("+user.avatar_url+")");
                         $(".avatar").css("background",`url(${user.avatar_url})`);
                         $(".avatar").css("background-size","cover");
                         $(".bio").html(user.bio);
@@ -136,7 +137,7 @@
                         }
                         else {
                             var user = JSON.parse(xhr.responseText);
-                            console.log(user);  
+                            // console.log(user);  
                         
                             name.innerHTML = user.name;
                             avatar.style.background = `url(${user.avatar_url})`;
@@ -147,7 +148,7 @@
                 };
 
                 searchButton.addEventListener('click', () => {
-                    console.log('Hello!');
+                    // console.log('Hello!');
                     printData();
                 });
             }
