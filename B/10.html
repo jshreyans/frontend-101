@@ -46,6 +46,9 @@
             display: inline-block;
             padding: 10px 0;
         }
+        #search-button-1, #search-button-2, #search-button-3 {
+            margin: 0 5px;
+        }
         
     </style>
 </head>
@@ -65,7 +68,7 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script>
-        
+        "use strict";
         let name = document.querySelector(".name");
         let avatar = document.querySelector(".avatar");
         let bio = document.querySelector(".bio");
@@ -78,18 +81,27 @@
                 let searchButton = document.querySelector("#search-button-1");
 
                 const fetchUser = async (userID) => {
+                    
                     const fetchCall = await fetch(`https://api.github.com/users/${userID}`);
-                    const userData = await fetchCall.json();
-                    return {data: userData};
+                    if (fetchCall.status == 200) {
+                        const userData = await fetchCall.json();
+                        return {data: userData};
+                    }
+                    else throw error; 
+                    
                 };
         
                 const printData = () => {
-                    fetchUser(userInput.value).then((res) => {
+                    fetchUser(userInput.value.trim())
+                    .then((res) => {
                         // console.log(res);
                         name.innerHTML = res.data.name;
                         avatar.style.background = `url(${res.data.avatar_url})`;
                         avatar.style.backgroundSize = "cover";
                         bio.innerHTML = res.data.bio;
+                    })
+                    .catch(error => {
+                        name.innerHTML = 'Error! User not found';
                     });
                 };
             
@@ -109,13 +121,17 @@
                     $.ajax({
                         url: `https://api.github.com/users/${userName}`,
                     
-                    }).done(function(user) {
+                    })
+                    .done(user => {
                         // console.log(user);
                     
                         $(".name").html(user.name);
                         $(".avatar").css("background",`url(${user.avatar_url})`);
                         $(".avatar").css("background-size","cover");
                         $(".bio").html(user.bio);
+                    })
+                    .fail(() => {
+                        name.innerHTML = "Error! User not found";
                     });
                 });
                 
@@ -123,7 +139,7 @@
 
             // ---------------------------- XMLHttpRequest call --------------------------------
             useXMLRequest: () => {
-                let searchButton = document.getElementById("search-button-3");
+                let searchButton = document.querySelector("#search-button-3");
                 const printData = () => {
                     let xhr = new XMLHttpRequest();
                     let userName = document.querySelector("#search").value;
