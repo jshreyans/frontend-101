@@ -32,6 +32,6 @@
         - Using JSON and `localstorage` to save user entered data locally
     - [B10 : Additional Task(Github Profile)](https://jshreyans551.github.io/frontend-101/B/10.html)
         - GitHub profile finder made using 3 methods:
-            - `fetch` API
+            - `fetch` API and `async/await`
             - jQuery/AJAX
             - `XMLHttpRequest`
