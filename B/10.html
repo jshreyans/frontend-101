@@ -87,8 +87,9 @@
                         const userData = await fetchCall.json();
                         return {data: userData};
                     }
-                    else throw error; 
-                    
+                    else {
+                        throw error; 
+                    }
                 };
         
                 const printData = () => {
