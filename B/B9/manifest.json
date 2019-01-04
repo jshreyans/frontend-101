@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "author": "Shreyans Jain",
+    "name": "Shreyans' Chrome Extension",
+    "description": "Console logs 'Hurray!' when you visit any of DVM's websites",  
+    "version": "1.0",
+
+    "permissions": [
+        "tabs", "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://bits-apogee.org/", "https://bits-oasis.org/", "https://bits-bosm.org/"
+            ],
+            "js": ["popup.js"]
+        }
+    ],
+    "browser_action": {
+        "default_title": "Shreyans' Chrome Tool",
+        "default_popup": "popup.html"
+    }
+}
