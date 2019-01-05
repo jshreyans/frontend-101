@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>frontend-101 B7</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #wrapper {
+            height: 75vw;
+            width: 120vw;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url("world.gif");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper"></div>
+
+    <script>
+        let map = document.querySelector("#wrapper");
+        let initialDimensions = {
+            height: map.getBoundingClientRect().height,
+            width : map.getBoundingClientRect().width
+        };
+        // console.log(initialDimensions.height);
+
+        window.addEventListener('wheel', e => {
+            e.preventDefault();
+
+            let mapDimensions = {
+                left : map.getBoundingClientRect().left,
+                top : map.getBoundingClientRect().top,
+                width : map.getBoundingClientRect().width,
+                height: map.getBoundingClientRect().height
+            };
+            let styleDimensions = {
+                left : parseFloat(window.getComputedStyle(map).getPropertyValue("left")),
+                top : parseFloat(window.getComputedStyle(map).getPropertyValue("top"))
+            };
+
+            const scaleMap = (scaleValueX,scaleValueY) => {
+                map.style.transform = `scale(${scaleValueX},${scaleValueY})`;
+                // map.style.transformOrigin = `${-mapDimensions.left + e.clientX}px ${-mapDimensions.top + e.clientY}px`;
+                map.style.transformOrigin = (-mapDimensions.left + e.clientX) + "px " + (-mapDimensions.top + e.clientY) + "px";
+
+                map.style.top = (styleDimensions.top <= 0) ? `${mapDimensions.top}px` : '0';
+                map.style.left = (styleDimensions.left <= 0) ? `${mapDimensions.left}px` : '0';
+                map.style.height = `${mapDimensions.height}px`;
+                map.style.width = `${mapDimensions.width}px`;
+            };
+
+            if (e.deltaY < 0 && mapDimensions.height < (initialDimensions.height * 5)) scaleMap(1.05,1.05);
+            else if (e.deltaY > 0 && mapDimensions.height > initialDimensions.height) scaleMap(0.95,0.95);
+        });
+    </script>
+</body>
+</html>
