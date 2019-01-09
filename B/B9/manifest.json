@@ -13,7 +13,7 @@
             "matches": [
                 "https://bits-apogee.org/", "https://bits-oasis.org/", "https://bits-bosm.org/"
             ],
-            "js": ["popup.js"]
+            "js": ["hello.js"]
         }
     ],
     "browser_action": {

@@ -27,6 +27,7 @@
     <div id="wrapper"></div>
 
     <script>
+        let isMouse = 0;
         let map = document.querySelector("#wrapper");
         let initialDimensions = {
             height: map.getBoundingClientRect().height,
@@ -36,7 +37,37 @@
 
         window.addEventListener('wheel', e => {
             e.preventDefault();
+            let checkMapPosition = {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                };
 
+            if (mapDimensions.left < -10) checkMapPosition.left = 1
+            else {
+                map.style.left = 0;
+                checkMapPosition.left = 0;
+            }
+
+            if (mapDimensions.left > -(mapDimensions.width - window.innerWidth)) checkMapPosition.right = 1
+            else {
+                map.style.left = -(mapDimensions.left - window.innerWidth) + "px";
+                checkMapPosition.right = 0;
+            }
+
+            if (mapDimensions.top < -10) checkMapPosition.top = 1
+            else {
+                map.style.top = 0;
+                checkMapPosition.top = 0;
+            }
+
+            if (mapDimensions.top > -(mapDimensions.height + window.innerHeight)) checkMapPosition.bottom = 1
+            else {
+                map.style.top = -(mapDimensions.top - window.innerHeight) + "px";
+                checkMapPosition.bottom = 0;
+            }
+            
             let mapDimensions = {
                 left : map.getBoundingClientRect().left,
                 top : map.getBoundingClientRect().top,
@@ -60,7 +91,74 @@
             };
 
             if (e.deltaY < 0 && mapDimensions.height < (initialDimensions.height * 5)) scaleMap(1.05,1.05);
-            else if (e.deltaY > 0 && mapDimensions.height > initialDimensions.height) scaleMap(0.95,0.95);
+            else if (e.deltaY > 0 && mapDimensions.height > initialDimensions.height && map.style.width >= "120vw") scaleMap(0.95,0.95);
+        });
+
+        document.addEventListener("mousedown", (e) => {
+            isMouse = 1;
+            document.body.style.cursor = "pointer";
+        });
+
+        document.addEventListener("mouseup", () => {
+            isMouse = 0;
+            document.body.style.cursor = "default";
+        });
+
+        document.addEventListener("mousemove", (e) => {
+            e = e || window.event;
+            
+            if (isMouse == 1) {
+                let mapDimensions = {
+                    left : map.getBoundingClientRect().left,
+                    top : map.getBoundingClientRect().top,
+                    width : map.getBoundingClientRect().width,
+                    height: map.getBoundingClientRect().height
+                }; 
+
+                let checkMapPosition = {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                };
+
+                if (mapDimensions.left < -10) checkMapPosition.left = 1
+                else {
+                    map.style.left = 0;
+                    checkMapPosition.left = 0;
+                }
+
+                if (mapDimensions.left > -(mapDimensions.width - window.innerWidth)) checkMapPosition.right = 1
+                else {
+                    map.style.left = -(mapDimensions.left - window.innerWidth) + "px";
+                    checkMapPosition.right = 0;
+                }
+
+                if (mapDimensions.top < -10) checkMapPosition.top = 1
+                else {
+                    map.style.top = 0;
+                    checkMapPosition.top = 0;
+                }
+
+                if (mapDimensions.top > -(mapDimensions.height + window.innerHeight)) checkMapPosition.bottom = 1
+                else {
+                    map.style.top = -(mapDimensions.top - window.innerHeight) + "px";
+                    checkMapPosition.bottom = 0;
+                }
+
+                if (checkMapPosition.left == 1 && e.movementX >= 0) {
+                    map.style.left = (parseFloat(window.getComputedStyle(map).getPropertyValue("left")) + e.movementX) + "px";
+                }
+                if (checkMapPosition.right == 1 && e.movementX <= 0) {
+                    map.style.left = (parseFloat(window.getComputedStyle(map).getPropertyValue("left")) + e.movementX) + "px";
+                }
+                if (checkMapPosition.top == 1 && e.movementY >= 0) {
+                    map.style.top = (parseFloat(window.getComputedStyle(map).getPropertyValue("top")) + e.movementY) + "px";
+                }
+                if (checkMapPosition.bottom == 1 && e.movementY <= 0) {
+                    map.style.top = (parseFloat(window.getComputedStyle(map).getPropertyValue("top")) + e.movementY) + "px";
+                }
+            }
         });
     </script>
 </body>
