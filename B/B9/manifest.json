@@ -3,15 +3,13 @@
     "author": "Shreyans Jain",
     "name": "Shreyans' Chrome Extension",
     "description": "Console logs 'Hurray!' when you visit any of DVM's websites",  
-    "version": "1.0",
+    "version": "1.1",
 
-    "permissions": [
-        "tabs", "activeTab"
-    ],
+    "permissions": ["tabs", "activeTab"],
     "content_scripts": [
         {
             "matches": [
-                "https://bits-apogee.org/", "https://bits-oasis.org/", "https://bits-bosm.org/"
+                "https://www.bits-apogee.org/2019intro/", "https://www.bits-oasis.org/", "https://www.bits-bosm.org/"
             ],
             "js": ["hello.js"]
         }
