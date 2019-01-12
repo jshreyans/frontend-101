@@ -30,6 +30,9 @@
         - Image slide animations in a document triggered by `scroll` event 
     - [B6 : FrontEnd Tech](https://jshreyans551.github.io/frontend-101/B/6.html)
         - Using JSON and `localstorage` to save user entered data locally
+    - [B7 : Around the World](https://jshreyans551.github.io/frontend-101/B/7.html)
+        - Implementing zooming and panning features in a map
+     
     - [B10 : Additional Task(Github Profile)](https://jshreyans551.github.io/frontend-101/B/10.html)
         - GitHub profile finder made using 3 methods:
             - `fetch` API and `async/await`
