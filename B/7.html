@@ -1,0 +1,277 @@
+a<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>frontend-101 B7</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #wrapper {
+            height: 75vw;
+            width: 120vw;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url("world.gif");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper"></div>
+
+    <script>
+        let isMouse = 0;
+        let map = document.querySelector("#wrapper");
+        let initialDimensions = {
+            height: map.getBoundingClientRect().height,
+            width : map.getBoundingClientRect().width
+        };
+        // console.log(initialDimensions.height);
+        
+
+// ----------------------------------- Mouewheel zoom code starts here -------------------------------------
+        window.addEventListener('wheel', e => {
+            if (!e) e = window.event;
+            // e = e || window.event;
+
+            e.preventDefault();
+
+            let mapDimensions = {
+                left : map.getBoundingClientRect().left,
+                top : map.getBoundingClientRect().top,
+                width : map.getBoundingClientRect().width,
+                height: map.getBoundingClientRect().height
+            };
+            let checkMapPosition = {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                };
+            if (mapDimensions.left < -10) checkMapPosition.left = 1
+            else {
+                map.style.left = 0;
+                checkMapPosition.left = 0;
+            }
+
+            if (mapDimensions.left > -(mapDimensions.width - window.innerWidth)) checkMapPosition.right = 1
+            else {
+                map.style.left = -(mapDimensions.left - window.innerWidth) + "px";
+                checkMapPosition.right = 0;
+            }
+
+            if (mapDimensions.top < -10) checkMapPosition.top = 1
+            else {
+                map.style.top = 0;
+                checkMapPosition.top = 0;
+            }
+
+            if (mapDimensions.top > -(mapDimensions.height + window.innerHeight)) checkMapPosition.bottom = 1
+            else {
+                map.style.top = -(mapDimensions.top - window.innerHeight) + "px";
+                checkMapPosition.bottom = 0;
+            }
+            // console.log(Object.values(checkMapPosition));
+
+            let styleDimensions = {
+                left : parseFloat(window.getComputedStyle(map).getPropertyValue("left")),
+                top : parseFloat(window.getComputedStyle(map).getPropertyValue("top"))
+            };
+
+            const scaleMap = (scaleValue) => {
+                map.style.transform = `scale(${scaleValue})`;
+                map.style.transformOrigin = ((-mapDimensions.left + e.clientX)/mapDimensions.width) * 100 + "% " + ((-mapDimensions.top + e.clientY)/mapDimensions.height) * 100 + "%";
+                map.style.top = `${mapDimensions.top}px`;
+                map.style.left = `${mapDimensions.left}px`;
+                map.style.height = `${mapDimensions.height}px`;
+                map.style.width = `${mapDimensions.width}px`;
+            };
+
+            if (e.deltaY < 0) {
+                console.log('works+');
+                scaleMap(1.05);
+            }
+            else if (e.deltaY > 0 && checkMapPosition.left == 1 && checkMapPosition.right == 1 && checkMapPosition.top == 1 && checkMapPosition.bottom == 1) {
+                console.log('works-');
+                scaleMap(0.95);
+            } 
+        });
+//  -------------------------------------------- Touch zoom code starts here ------------------------------------------------
+        let newLength, oldLength;
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+
+            let mapDimensions = {
+                left : map.getBoundingClientRect().left,
+                top : map.getBoundingClientRect().top,
+                width : map.getBoundingClientRect().width,
+                height: map.getBoundingClientRect().height
+            };
+
+            const scaleMapTouch = (scaleValue) => {
+                map.style.transform = `scale(${scaleValue})`;
+                map.style.top = `${mapDimensions.top}px`;
+                map.style.left = `${mapDimensions.left}px`;
+                map.style.height = `${mapDimensions.height}px`;
+                map.style.width = `${mapDimensions.width}px`;
+            };
+
+            if (e.touches.length == 2) { // Check if user touches with both fingers to zoom in/out
+
+                // To get new length, use Pythagoras
+                newLength = ((e.touches[0].pageX - e.touches[1].pageX)**2 + (e.touches[0].pageY - e.touches[1].pageY)**2) ** 0.5;
+
+                // Transfrom origin to middle of the two points where the user's fingers touch
+                map.style.transformOrigin = (-map.getBoundingClientRect().left + (e.touches[0].pageX + e.touches[1].pageX)/2) + "px " + (-map.getBoundingClientRect().top + (e.touches[0].pageY + e.touches[1].pageY)/2) + "px";
+                change = 1 + (((newLength - oldLength)/oldLength)/10);
+                mapDimensions.height = map.getBoundingClientRect().height;
+                mapDimensions.width = map.getBoundingClientRect().width;
+                
+                if (change > 0 && mapDimensions.height < initialDimensions.height * 5) {
+                   scaleMapTouch(change);
+                }
+                if (change < 0 && mapDimensions.height > initialDimensions) {
+                    scaleMapTouch(change);
+                }
+            }
+        });
+// ------------------------------------------------- Mouse pan code starts here ------------------------------------------------
+
+        document.addEventListener("mousedown", (e) => {
+            isMouse = 1;
+            document.body.style.cursor = "pointer";
+        });
+
+        document.addEventListener("mouseup", () => {
+            isMouse = 0;
+            document.body.style.cursor = "default";
+        });
+
+        document.addEventListener("mousemove", (e) => {
+            e = e || window.event;
+
+            let mapDimensions = {
+                left : map.getBoundingClientRect().left,
+                top : map.getBoundingClientRect().top,
+                width : map.getBoundingClientRect().width,
+                height: map.getBoundingClientRect().height
+            };
+
+            if (isMouse == 1) {
+
+                let checkMapPosition = {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                };
+
+                if (mapDimensions.left < -10) checkMapPosition.left = 1
+                else {
+                    map.style.left = 0;
+                    checkMapPosition.left = 0;
+                }
+
+                if (mapDimensions.left > -(mapDimensions.width - window.innerWidth)) checkMapPosition.right = 1
+                else {
+                    map.style.left = -(mapDimensions.left - window.innerWidth) + "px";
+                    checkMapPosition.right = 0;
+                }
+
+                if (mapDimensions.top < -10) checkMapPosition.top = 1
+                else {
+                    map.style.top = 0;
+                    checkMapPosition.top = 0;
+                }
+
+                if (mapDimensions.top > -(mapDimensions.height + window.innerHeight)) checkMapPosition.bottom = 1
+                else {
+                    map.style.top = -(mapDimensions.top - window.innerHeight) + "px";
+                    checkMapPosition.bottom = 0;
+                }
+
+                if (checkMapPosition.left == 1 && e.movementX >= 0) {
+                    map.style.left = (parseFloat(window.getComputedStyle(map).getPropertyValue("left")) + e.movementX) + "px";
+                }
+                if (checkMapPosition.right == 1 && e.movementX <= 0) {
+                    map.style.left = (parseFloat(window.getComputedStyle(map).getPropertyValue("left")) + e.movementX) + "px";
+                }
+                if (checkMapPosition.top == 1 && e.movementY >= 0) {
+                    map.style.top = (parseFloat(window.getComputedStyle(map).getPropertyValue("top")) + e.movementY) + "px";
+                }
+                if (checkMapPosition.bottom == 1 && e.movementY <= 0) {
+                    map.style.top = (parseFloat(window.getComputedStyle(map).getPropertyValue("top")) + e.movementY) + "px";
+                }
+            }
+        });
+// ----------------------------------------- Touch pan code starts here --------------------------------------------
+        let isTouch = false;
+        let styleLeft, styleTop;
+        document.addEventListener('touchstart', function(e) {
+            e.preventDefault()
+            if (e.touches.length == 1) {
+                isTouch = true;
+            }
+        });
+        document.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            isTouch = false;
+        })
+        document.addEventListener('touchmove', function(e) {
+            if (isTouch && e.touches.length == 1) {
+
+                let checkMapPosition = {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                };
+
+                if (mapDimensions.left < -10) checkMapPosition.left = 1
+                else {
+                    map.style.left = 0;
+                    checkMapPosition.left = 0;
+                }
+
+                if (mapDimensions.left > -(mapDimensions.width - window.innerWidth)) checkMapPosition.right = 1
+                else {
+                    map.style.left = -(mapDimensions.left - window.innerWidth) + "px";
+                    checkMapPosition.right = 0;
+                }
+
+                if (mapDimensions.top < -10) checkMapPosition.top = 1
+                else {
+                    map.style.top = 0;
+                    checkMapPosition.top = 0;
+                }
+
+                if (mapDimensions.top > -(mapDimensions.height + window.innerHeight)) checkMapPosition.bottom = 1
+                else {
+                    map.style.top = -(mapDimensions.top - window.innerHeight) + "px";
+                    checkMapPosition.bottom = 0;
+                }
+
+                if (checkMapPosition.left == 1 && e.movementX >= 0) {
+                    map.style.left = (parseFloat(window.getComputedStyle(map).getPropertyValue("left")) + e.movementX) + "px";
+                }
+                if (checkMapPosition.right == 1 && e.movementX <= 0) {
+                    map.style.left = (parseFloat(window.getComputedStyle(map).getPropertyValue("left")) + e.movementX) + "px";
+                }
+                if (checkMapPosition.top == 1 && e.movementY >= 0) {
+                    map.style.top = (parseFloat(window.getComputedStyle(map).getPropertyValue("top")) + e.movementY) + "px";
+                }
+                if (checkMapPosition.bottom == 1 && e.movementY <= 0) {
+                    map.style.top = (parseFloat(window.getComputedStyle(map).getPropertyValue("top")) + e.movementY) + "px";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
