@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>frontend-101 B2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .frame {
+            width: 600px;
+            height: 600px;
+            background: #fff;
+            border: 5px solid black;
+            /* border-radius: 50%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .clock-face {
+            background: orange;
+            position: absolute;
+            height: 550px;
+            width: 550px;
+            border-radius: 50%;
+            border: 20px solid red;
+        }
+        .hour, .minute, .second {
+            background: black;
+            position: absolute;
+            transform-origin: 100% 100%;
+            bottom: 300px;
+        }
+        .center {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background: black;
+            z-index: 10;
+            position: absolute;
+            left: 296px;
+        }
+        #hr {
+            height: 170px;
+            width: 4px;
+        }
+        #min {
+            height: 230px;
+            width: 4px;
+        }
+        #sec {
+            height: 230px;
+            width: 1.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="clock-face"></div>
+        <div class="hour" id="hr"></div>
+        <div class="minute" id="min"></div>
+        <div class="second" id="sec"></div>
+        <div class="center"></div>
+    </div>
+
+    <script>
+        setInterval(function(){
+            const time = new Date();
+
+            let hourHand = document.getElementById("hr");
+            let minuteHand = document.getElementById("min");
+            let secondHand = document.getElementById("sec");  
+            
+            // Dividing by 60 converts minutes(seconds) to fraction of hour(minute)
+            // Multiplying 360 gives the portion of circle to be rotated to obtain that fraction
+            let minutes = (time.getMinutes() / 60) * 360;
+            let seconds = (time.getSeconds() / 60) * 360;
+            
+            // to get hours, check if hours > 12(24-hr format) and assign rotation accordingly
+            let hours = time.getHours() > 12 ? (((time.getHours()-12)/12)*360)+(minutes / 6) : ((time.getHours()/12)*360)+(minutes / 6); 
+            
+            hourHand.style.transform = `rotateZ(${hours}deg)`;
+            minuteHand.style.transform = `rotateZ(${minutes}deg)`;
+            secondHand.style.transform = `rotateZ(${seconds}deg)`;
+            
+        },1000);
+    </script>
+</body>
+</html>
