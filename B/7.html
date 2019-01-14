@@ -1,4 +1,4 @@
-a<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,7 +18,7 @@ a<!DOCTYPE html>
             position: absolute;
             top: 0;
             left: 0;
-            background: url("world.gif");
+            background: url("world.png");
             background-size: cover;
         }
     </style>
@@ -84,7 +84,6 @@ a<!DOCTYPE html>
                 left : parseFloat(window.getComputedStyle(map).getPropertyValue("left")),
                 top : parseFloat(window.getComputedStyle(map).getPropertyValue("top"))
             };
-
             const scaleMap = (scaleValue) => {
                 map.style.transform = `scale(${scaleValue})`;
                 map.style.transformOrigin = ((-mapDimensions.left + e.clientX)/mapDimensions.width) * 100 + "% " + ((-mapDimensions.top + e.clientY)/mapDimensions.height) * 100 + "%";
