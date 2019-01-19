@@ -17,4 +17,7 @@
     - B4 : Sequence Detector
     - B5 : Image Slide-in
     - B6 : FrontEnd tech
+    - B7 : Around the World
+    - B8 : Game Time
+    - B9 : Basic Chrome Extension
     - B10 : Fetch GitHub Profile
