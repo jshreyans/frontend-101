@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+}
+
+.wrapper {
+    background: #faf8ef;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    height: 100vh;
+    width: 450px;
+    position: relative;
+}
+
+.game-name, .score-board {
+    margin-top: 20px;
+}
+
+.game-name {
+    background: #edc501;
+    height: 150px;
+    width: 150px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.game-name > h1 {
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+
+.score-board {
+    background: #bbada0;
+    height: 100px;
+    width: 150px;
+    float: right;
+    border-radius: 10px;  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.score-title {
+    color: #cdc1b4;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.score {
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+}
+
+.playboard {
+    margin-top: 50px;
+    width: 450px;
+    height: 450px;
+    background: #bbada0;
+    border-radius: 7px;
+    box-sizing: border-box;
+    position: relative;
+    padding: 2.222222223%;
+}
+
+.grid {
+    width: 95.5555555556%;
+    height: 95.5555555556%;
+    position: absolute;
+}
+.cell:last-child {
+    margin-right: 0;
+}
+.row {
+    display: flex;
+    height: 23.255814%;
+    margin-bottom: 2.3255814%;
+}
+
+.cell {
+    width: 23.2888%;
+    height: 100%;
+    border-radius: 5px;
+    margin-right: 2.3255814%;
+    background: #cdc1b4;
+}
+ 
+.new-cell {
+    height: 22.222222223%;
+    width: 22.222222223%;
+    position: absolute;
+    font-size: 3em;
+    font-weight: bolder;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    transition: 0.2s all ease; 
+}
+
+.new {
+    animation: scale 0.2s ease forwards;
+    /* animation-delay: 0.2s; */
+}
+@keyframes scale {
+    0% {transform: scale(0)}
+    100% {transform: scale(1)}
+}
+
+.merge {
+    animation: merge 0.2s ease forwards;
+    /* animation-delay: 0.2s; */
+}
+@keyframes merge{
+    0% {transform: scale(1)}
+    50% {transform: scale(1.2)}
+    100% {transform: scale(1)}
+}
+ 
+@media all and (max-width:450px) {
+    .container {
+        width: 100vw;
+        height: 100vh;
+    }
+    .playboard {
+        width: 100vw;
+        height: 100vw;
+    }
+    .game-name {
+        width: 130px;
+        height: 130px;
+        margin-left: 5vw;
+    }
+    .game-name  h1 {
+        font-size: 2.5em;
+    }
+    .score-board{
+        width: 120px;
+        height: 80px;
+        margin-right: 5vw;
+    }
+    .score {
+        font-size: 2em;
+    }
+
+}
