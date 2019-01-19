@@ -32,6 +32,8 @@
         - Using JSON and `localstorage` to save user entered data locally
     - [B7 : Around the World](https://jshreyans551.github.io/frontend-101/B/7.html)
         - Implementing zooming and panning features in a map
+    - [B8 : Game Time](https://jshreyans551.github.io/frontend-101/B/B8/index.html)
+        - Making the classic game 2048 using pure JS
     - [B9 : Basic Chrome Extension](https://jshreyans551.github.io/frontend-101/B9/popup.html)
         - Making a very basic Google Chrome Extension
     - [B10 : Additional Task(Github Profile)](https://jshreyans551.github.io/frontend-101/B/10.html)
