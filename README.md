@@ -1,6 +1,6 @@
 # frontend-101
 ## Department of Visual Media - Assignment for CSS and Javascript
-1. Set A 
+1. Set A (CSS)
     - [A1 : Basic Grid](https://jshreyans551.github.io/frontend-101/A/1.html)
         - responsive grid made with flexboxes 
     - [A2 : Incomplete Grid](https://jshreyans551.github.io/frontend-101/A/2.html)
@@ -17,7 +17,7 @@
         - iPhoneX Home Screen made using circular gradient backgrounds in CSS
     - [A8 : Clip Clip Clip](https://jshreyans551.github.io/frontend-101/A/8.html) 
         - Using `clip-path` to implement the [Species-in-Pieces](http://www.species-in-pieces.com/) animation
-2. Set B 
+2. Set B (Javascript)
     - [B1 : Drums](https://jshreyans551.github.io/frontend-101/B/1.html)
         - A simple Launchpad implementation using `keydown` and `keyup` events
     - [B2 : Clock](https://jshreyans551.github.io/frontend-101/B/2.html)
